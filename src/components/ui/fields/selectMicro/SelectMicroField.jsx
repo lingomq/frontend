@@ -30,7 +30,6 @@ const SelectField = ({
     
     return (
         <div className={styles.selectMicroFieldComponent}>
-            <label>{labelText}</label>
             <select
                 name={name}
                 className={styles.selectMicroField}

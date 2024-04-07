@@ -3,7 +3,6 @@
 
 .headerWrap {
     border-bottom: 1px solid #B3B3B3;
-    
 }
 
 .header {
@@ -31,4 +30,21 @@
 .logo {
     width: 80px;
     height: 80px;
+}
+
+.themePaliterButton {
+    width: 25px;
+    height: 25px;
+    margin: 0;
+}
+
+
+.themePaliterButton img {
+    width: 25px;
+    height: 25px;
+    margin: 0;
+}
+
+.themePaliterButton :hover {
+    cursor: pointer;
 }
