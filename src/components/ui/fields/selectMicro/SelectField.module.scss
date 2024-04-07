@@ -1,0 +1,23 @@
+@import "../../../../core/styles/fonts.module.scss";
+@import "../../../../core/styles/root.module.scss";
+
+.selectMicroFieldComponent {
+    padding: 5px 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.selectMicroFieldComponent label {
+    font-family: $mainFont;
+    margin-bottom: 10px;
+}
+
+.selectMicroField {
+    font-family: $mainFont;
+    font-size: 1em;
+    border-radius: 5px;
+    background: none;
+    border: none;
+    width: auto;
+    color: var(--foreground-secondary);
+}
