@@ -16,6 +16,8 @@
 body {
   margin: 0;
   box-sizing: border-box;
+  background: var(--background-primary);
+  transition: 0.15s ease-in;
 }
 
 html[data-theme="light"] {
@@ -27,7 +29,6 @@ html[data-theme="dark"] {
 }
 
 .root {
-  background: var(--background-primary);
   margin: 0;
   box-sizing: border-box;
 }

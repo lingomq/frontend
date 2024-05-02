@@ -7,6 +7,9 @@ export const LOCALIZED_TEXT = {
             about: "About us",
             faq: "F.A.Q",
             startButtonText: "Login"
+        },
+        themePicker: {
+            title: "Select theme"
         }
     },
     ["RUSSIAN"]: {
@@ -15,6 +18,9 @@ export const LOCALIZED_TEXT = {
             about: "О нас",
             faq: "F.A.Q",
             startButtonText: "Вход"
+        },
+        themePicker: {
+            title: "Выберите тему"
         }
     }
 }

@@ -3,6 +3,7 @@ import { UnauthorizedHeader } from "./components/elements/unauthorizedHeader/una
 import styles from "./core/styles/root.module.scss";
 import { Cookies } from "react-cookie";
 import { UserRoutes } from "./components/routes/UserRoutes.jsx";
+import ModalProvider from "./components/ui/modal/ModalProvider.jsx";
 
 const cookies = new Cookies();
 
@@ -13,7 +14,8 @@ const App = () => {
   return (
     <div className={styles.root}>
       <UnauthorizedHeader />
-      <UserRoutes/>
+      <ModalProvider />
+      <UserRoutes />
     </div>
   );
 };
