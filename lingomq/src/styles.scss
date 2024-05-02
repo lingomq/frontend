@@ -1,0 +1,50 @@
+/* FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+$mainFont: "Montserrat";
+
+:root {
+  --background-primary-light: #ffffff;
+  --background-primary-dark: #1e1e1e;
+
+  --foreground-primary: #000000;
+  --foreground-secondary: #00a3ff;
+  --foreground-alternative: #b1b1b1;
+
+  --error-color: #fc5959;
+  --success-color: #95ff95;
+  --warning-color: #fff148;
+
+  --default-font-size: 20px;
+}
+
+body {
+  margin: 0;
+  box-sizing: border-box;
+  background: var(--background-primary);
+  transition: 0.15s ease-in;
+}
+
+html[data-theme="light"] {
+  --background-primary: var(--background-primary-light);
+}
+
+html[data-theme="dark"] {
+  --background-primary: var(--background-primary-dark);
+}
+
+.root {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  color: var(--foreground-secondary);
+  font-weight: 330;
+  text-decoration: none;
+  transition: 0.15s ease-in;
+}
+
+a:hover {
+  color: var(--foreground-alternative);
+}
