@@ -27,3 +27,52 @@
     }
   }
 }
+
+.picture {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.boat {
+  animation-name: boat-swim;
+  animation-duration: 3s;
+  width: 70%;
+  z-index: -2;
+  margin-top: 10%;
+  animation-iteration-count: infinite;
+}
+
+.sea {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: -1;
+  left: 50;
+  bottom: -3%;
+  position: absolute;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1000px;
+
+  .button-more {
+    height: 100%;
+    margin-bottom: 10em;
+  }
+}
+
+@keyframes boat-swim {
+  0% {
+    transform: rotate(-15deg);
+  }
+  25% {
+    transform: rotate(0);
+  }
+  75% {
+    transform: rotate(15deg);
+  }
+  100% {
+    transform: rotate(-15deg);
+  }
+}
