@@ -8,7 +8,7 @@ import { TranslocoModule, TranslocoPipe } from '@ngneat/transloco';
   imports: [LingomqButtonComponent, TranslocoModule],
   providers: [TranslocoPipe],
   templateUrl: './general-header.component.html',
-  styleUrl: './general-header.component.scss'
+  styleUrl: './general-header.component.scss',
 })
 export class GeneralHeaderComponent {
 

@@ -8,7 +8,7 @@ import { provideTransloco } from '@ngneat/transloco';
 
 export const appConfig: ApplicationConfig = {
   providers: [provideRouter(routes), provideHttpClient(), provideTransloco({
-        config: { 
+        config: {
           availableLangs: ['ru', 'en', 'fr', 'ja'],
           defaultLang: 'ru',
           // Remove this option if your application doesn't support changing language in runtime.

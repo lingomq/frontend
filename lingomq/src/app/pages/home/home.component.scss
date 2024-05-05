@@ -53,12 +53,18 @@
   bottom: -3%;
   position: absolute;
   margin: 0 auto;
-  width: 100%;
-  max-width: 1000px;
+  height: 300px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
 
   .button-more {
+    top: 50%;
+    position: absolute;
     height: 100%;
-    margin-bottom: 10em;
   }
 }
 
