@@ -1,0 +1,13 @@
+{
+  "header": {
+    "start": "Начать",
+    "about": "О нас",
+    "faq": "F.A.Q",
+    "sign-in": "Вход"
+  },
+  "welcome": {
+    "title": "Начинай изучать языки вместе с",
+    "subtitle": "LingoMq",
+    "more": "Подробнее"
+  }
+}

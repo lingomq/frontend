@@ -1,0 +1,58 @@
+<div class="header">
+  <div class="header__content">
+    <a class="header__logo-button" href="/">
+      <img class="header__logo" src="../../../../assets/logo.png" alt="logo"
+    /></a>
+    <div class="header__navigation">
+      <a href="/">{{ "header.start" | transloco }}</a>
+      <a href="/">{{ "header.about" | transloco }}</a>
+      <a href="/">{{ "header.faq" | transloco }}</a>
+      <lingomq-button>{{ "header.sign-in" | transloco }}</lingomq-button>
+      <img
+        class="header__language-selector header__selector-buttons"
+        src="../../../../assets/language.svg"
+        alt="language-selector"
+      />
+      <img
+        class="header__paint-selector header__selector-buttons"
+        src="../../../../assets/paint-palette.svg"
+        alt="paint-selector"
+      />
+    </div>
+    <div class="header__hamburger-button">
+      <lingomq-button (click)="onHamburgerClick()"><mat-icon>menu</mat-icon></lingomq-button>
+    </div>
+  </div>
+</div>
+<div class="hamburger-menu">
+  <div class="hamburger-menu__title">
+    <a (click)="onCloseHamburgerClick()" class="hamburger-menu__close"
+      ><mat-icon>keyboard_arrow_left</mat-icon>Закрыть</a
+    >
+    <a class="hamburger-menu__logo-button" href="/">
+      <img
+        class="hamburger-menu__logo"
+        src="../../../../assets/logo.png"
+        alt="logo"
+    /></a>
+  </div>
+  <div class="hamburger-menu__navigation">
+    <a href="/">{{ "header.start" | transloco }}</a>
+    <a href="/">{{ "header.about" | transloco }}</a>
+    <a href="/">{{ "header.faq" | transloco }}</a>
+    <lingomq-button>{{ "header.sign-in" | transloco }}</lingomq-button>
+  </div>
+  <hr class="hamburger-menu__row-line" />
+  <div class="hamburger-menu__footer">
+    <img
+      class="hamburger-menu__language-selector hamburger-menu__selector-buttons"
+      src="../../../../assets/language.svg"
+      alt="language-selector"
+    />
+    <img
+      class="hamburger-menu__paint-selector hamburger-menu__selector-buttons"
+      src="../../../../assets/paint-palette.svg"
+      alt="paint-selector"
+    />
+  </div>
+</div>
