@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgModule } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { GeneralHeaderComponent } from './shared/components/general-header/general-header.component';
 import { AppThemeService } from './shared/services/app-theme/app-theme.service';

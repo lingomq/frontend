@@ -4,15 +4,14 @@
       {{ "welcome.title" | transloco }} <br />
       <b>{{ "welcome.subtitle" | transloco }}</b>
     </h1>
-    <div class="picture">
-      <img class="boat" src="../../../assets/boat.svg" alt="boat" />
-      <div class="sea">
-        <img class="sea-img" src="../../../assets/Group 4.svg" alt="sea" />
-        <div class="button-more">
-          <lingomq-button type="alternative" class="more">{{
-            "welcome.more" | transloco
-          }}</lingomq-button>
-        </div>
+    <div class="welcome__picture">
+      <img class="welcome__boat" src="../../../assets/boat.svg" alt="boat" />
+
+      <img class="welcome__sea" src="../../../assets/Group 4.svg" alt="sea" />
+      <div class="welcome__button-more">
+        <lingomq-button class="welcome__more"
+          >{{ "welcome.more" | transloco }} <br /> <mat-icon>keyboard_arrow_down</mat-icon></lingomq-button
+        >
       </div>
     </div>
   </div>
