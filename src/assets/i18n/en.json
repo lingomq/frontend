@@ -1,0 +1,13 @@
+{
+  "header": {
+    "start": "Start",
+    "about": "About",
+    "faq": "F.A.Q",
+    "sign-in": "Sign"
+  },
+  "welcome": {
+    "title": "Let`s learn languages with",
+    "subtitle": "LingoMq",
+    "more": "More"
+  }
+}
