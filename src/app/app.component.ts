@@ -1,0 +1,16 @@
+import { Component } from '@angular/core';
+import { RouterOutlet } from '@angular/router';
+import { AppThemeService } from './shared/services/app-theme.service';
+
+@Component({
+  selector: 'app-root',
+  imports: [RouterOutlet],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+  title = 'lingomq';
+  constructor() {
+    AppThemeService.useTheme();
+  }
+}
