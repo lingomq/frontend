@@ -1,13 +1,26 @@
 {
+  "general": {
+    "copyright-text": "Все права защищены"
+  },
   "header": {
     "start": "Начать",
     "about": "О нас",
     "faq": "F.A.Q",
-    "sign-in": "Вход"
+    "sign-in": "Вход",
+    "privacy-policy": "Политика конфиденциальности",
+    "user-agree": "Пользовательское соглашение"
   },
   "welcome": {
     "title": "Начинай изучать языки вместе с",
     "subtitle": "LingoMq",
     "more": "Подробнее"
+  },
+  "general-footer": {
+    "title": "КАРТА САЙТА"
+  },
+  "auth-footer": {
+    "practice": "Практика",
+    "dict": "Словарь",
+    "library": "Библиотека"
   }
 }

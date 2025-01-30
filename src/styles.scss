@@ -59,7 +59,8 @@ body {
   margin: 0;
   box-sizing: border-box;
   background: var(--background-primary);
-  transition: 0.15s ease-in;
+  transition: 0.55s ease;
+  font-family: $mainFont;
 }
 
 html[data-theme="light"] {
@@ -87,4 +88,3 @@ a:hover {
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

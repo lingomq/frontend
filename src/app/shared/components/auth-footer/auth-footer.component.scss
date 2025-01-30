@@ -1,0 +1,42 @@
+@import "../../../../styles.scss";
+
+.auth-footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 70px;
+  border-top: 1px solid #b3b3b3;
+  .auth-footer-nav {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    font-size: 12px;
+
+    .auth-footer-nav-button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 35px;
+
+      .auth-footer-nav-icon {
+        max-width: 22px;
+        max-height: 22px;
+      }
+
+      .auth-footer-nav-profile-icon {
+        max-width: 22px;
+        max-height: 22px;
+
+        img {
+          object-fit: contain;
+          border-radius: 50%;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
