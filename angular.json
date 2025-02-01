@@ -23,6 +23,7 @@
             "polyfills": ["zone.js"],
             "stylePreprocessorOptions": {
               "includePaths": [
+                "./src",
                 "./src/assets",
                 "./src/app/shared",
                 "./src/app/pages",
