@@ -1,13 +1,18 @@
 <div class="header">
   <div class="header__content">
     <a class="header__logo-button" href="/">
-      <img class="header__logo" src="../../../../assets/img/logo.png" alt="logo"
+      <img
+        class="header__logo"
+        src="../../../../assets/img/logo.png"
+        alt="logo"
     /></a>
     <div class="header__navigation">
       <a href="/">{{ "header.start" | transloco }}</a>
       <a href="/">{{ "header.about" | transloco }}</a>
       <a href="/">{{ "header.faq" | transloco }}</a>
-      <lingomq-button>{{ "header.sign-in" | transloco }}</lingomq-button>
+      <lingomq-button onclick="window.location.href = '/sign-in';">{{
+        "header.sign-in" | transloco
+      }}</lingomq-button>
       <!-- <img
         class="header__language-selector header__selector-buttons"
         src="../../../../assets/img/language.svg"
@@ -20,7 +25,9 @@
       /> -->
     </div>
     <div class="header__hamburger-button">
-      <lingomq-button (click)="onHamburgerClick()"><mat-icon>menu</mat-icon></lingomq-button>
+      <lingomq-button (click)="onHamburgerClick()"
+        ><mat-icon>menu</mat-icon></lingomq-button
+      >
     </div>
   </div>
 </div>
@@ -40,7 +47,9 @@
     <a href="/">{{ "header.start" | transloco }}</a>
     <a href="/">{{ "header.about" | transloco }}</a>
     <a href="/">{{ "header.faq" | transloco }}</a>
-    <lingomq-button>{{ "header.sign-in" | transloco }}</lingomq-button>
+    <lingomq-button onclick="window.location.href = '/sign-in';">{{
+      "header.sign-in" | transloco
+    }}</lingomq-button>
   </div>
   <hr class="hamburger-menu__row-line" />
   <div class="hamburger-menu__footer">
