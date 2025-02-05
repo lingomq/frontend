@@ -54,5 +54,20 @@
     "password": "Пароль",
     "remember-me": "Запомнить меня",
     "sign": "Присоединиться"
+  },
+  "account": {
+    "title": "Аккаунт",
+    "personal-title": "Персональные данные",
+    "personal-desc": "Данные о вашем аккаунте",
+    "notification-title": "Уведомления",
+    "notification-desc": "Аудит действий",
+    "statistics-title": "Статистика",
+    "statistics-desc": "Просмотрите ваши успехи",
+    "security-title": "Безопасность",
+    "security-desc": "Управляйте своим аккаунтом",
+    "settings-title": "Глобальные настройки",
+    "settings-desc": "Настройте тему, язык приложения",
+    "leave-title": "Выход или удаление данных",
+    "leave-desc": "Выйдите из приложения или удалите данные об аккаунте"
   }
 }

@@ -3,6 +3,7 @@ import { NotFoundPageComponent } from './pages/not-found-page/not-found-page.com
 import { LandingComponent } from './pages/landing/landing.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
+import { AccountComponent } from './pages/account/account.component';
 
 export const routes: Routes = [
   {
@@ -16,6 +17,10 @@ export const routes: Routes = [
   {
     path: 'sign-up',
     component: SignUpComponent,
+  },
+  {
+    path: 'account',
+    component: AccountComponent
   },
   {
     path: 'not-found',
