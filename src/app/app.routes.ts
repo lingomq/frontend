@@ -5,6 +5,7 @@ import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { AccountComponent } from './pages/account/account.component';
 import { LibraryMainComponent } from './pages/library-main/library-main.component';
+import { LibraryComponent } from './pages/library/library.component';
 
 export const routes: Routes = [
   {
@@ -26,6 +27,14 @@ export const routes: Routes = [
   {
     path: 'library',
     component: LibraryMainComponent
+  },
+  {
+    path: 'lib',
+    component: LibraryComponent
+  },
+  {
+    path: 'lib/:wordtype',
+    component: LibraryComponent
   },
   {
     path: 'not-found',
