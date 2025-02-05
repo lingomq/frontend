@@ -4,6 +4,7 @@ import { LandingComponent } from './pages/landing/landing.component';
 import { SignInComponent } from './pages/sign-in/sign-in.component';
 import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { AccountComponent } from './pages/account/account.component';
+import { LibraryMainComponent } from './pages/library-main/library-main.component';
 
 export const routes: Routes = [
   {
@@ -21,6 +22,10 @@ export const routes: Routes = [
   {
     path: 'account',
     component: AccountComponent
+  },
+  {
+    path: 'library',
+    component: LibraryMainComponent
   },
   {
     path: 'not-found',
