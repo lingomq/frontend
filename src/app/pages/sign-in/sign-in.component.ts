@@ -1,5 +1,5 @@
 import { SignModel } from './../../shared/services/integrations/lingomq-api/lingomq-identity/models/sign-model';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslocoModule, TranslocoPipe } from '@jsverse/transloco';
 import { LingomqButtonComponent } from '../../core/ui/lingomq-button/lingomq-button.component';
 import { EmptyHeaderComponent } from '../../shared/components/empty-header/empty-header.component';
@@ -11,6 +11,7 @@ import {
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
+import { LocalStorageExtensionService } from '../../shared/services/local-storage-extension-service';
 
 @Component({
   selector: 'app-sign-in',
@@ -26,12 +27,15 @@ import {
   templateUrl: './sign-in.component.html',
   styleUrl: './sign-in.component.scss',
 })
-export class SignInComponent {
+export class SignInComponent implements OnInit {
   signModel = new FormGroup({
     email: new FormControl(''),
     password: new FormControl(''),
   });
-  constructor(private lingoMqIdentityService: LingomqIdentityService) {}
+  constructor(private lingoMqIdentityService: LingomqIdentityService) { }
+  ngOnInit(): void {
+    if (LingomqIdentityService.isAuth()) window.location.href = 'library'
+  }
 
   public signIn() {
     const signModel: SignModel = {
@@ -42,10 +46,7 @@ export class SignInComponent {
 
     this.lingoMqIdentityService.signIn(signModel).subscribe(
       (x) => {
-        sessionStorage.setItem("access_token", x.accessToken);
-        sessionStorage.setItem("refresh_token", x.refreshToken);
-        sessionStorage.setItem("access_expires_at", x.expiresAt);
-        sessionStorage.setItem("refresh_expires_at", x.refreshExpiresAt);
+        LocalStorageExtensionService.setValues(x);
         window.location.href = '/account'
       }
     );

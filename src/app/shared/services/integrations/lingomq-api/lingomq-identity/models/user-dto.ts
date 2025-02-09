@@ -1,3 +1,3 @@
 export interface UserDto {
-  Nickname: string;
+  nickname: string;
 }

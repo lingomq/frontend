@@ -9,7 +9,7 @@
         <img src="../../../assets/img/temp.jpg" alt="profile-img" />
       </div>
       <div class="content-account-desc">
-        <p>sh0rtener</p>
+        <p *ngIf="user$ | async as user">{{user.nickname}}</p>
         <p>{{ "zxc.danil@inbox.ru" }}</p>
       </div>
     </div>
