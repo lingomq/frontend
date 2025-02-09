@@ -20,15 +20,15 @@
     }}</lingomq-button>
   </div>
   <div class="content-sign-in-form">
-    <form>
+    <form [formGroup]="signModel">
       <div class="content-sign-in-form-input">
         <label>Email</label>
-        <input type="email" required placeholder="email" />
+        <input type="email" required placeholder="email" formControlName="email"/>
       </div>
 
       <div class="content-sign-in-form-input">
         <label>{{ "sign-in.password" | transloco }}</label>
-        <input type="password" required />
+        <input type="password" required formControlName="password"/>
       </div>
 
       <div class="content-sign-in-form-input-cleared">
@@ -36,20 +36,20 @@
         <label id="remember-me">{{ "sign-in.remember-me" | transloco }}</label>
       </div>
 
-      <lingomq-button>{{ "sign-in.sign" | transloco }}</lingomq-button>
+      <lingomq-button (click)="signIn()">{{ "sign-in.sign" | transloco }}</lingomq-button>
     </form>
   </div>
   <div class="content-sign-in-form-mobile">
     <h1>{{ "sign-in.title" | transloco }}</h1>
-    <form>
+    <form [formGroup]="signModel">
       <div class="content-sign-in-form-input">
         <label>Email</label>
-        <input type="email" required placeholder="email" />
+        <input type="email" required placeholder="email" formControlName="email"/>
       </div>
 
       <div class="content-sign-in-form-input">
         <label>{{ "sign-in.password" | transloco }}</label>
-        <input type="password" required />
+        <input type="password" required formControlName="password"/>
       </div>
 
       <div class="content-sign-in-form-input-cleared">
@@ -57,7 +57,7 @@
         <label id="remember-me">{{ "sign-in.remember-me" | transloco }}</label>
       </div>
 
-      <lingomq-button>{{ "sign-in.sign" | transloco }}</lingomq-button>
+      <lingomq-button (click)="signIn()">{{ "sign-in.sign" | transloco }}</lingomq-button>
     </form>
     <p>{{ "sign-in.services" | transloco }}</p>
     <div class="content-description-services">
