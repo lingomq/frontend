@@ -5,10 +5,12 @@ import { EmptyHeaderComponent } from '../../shared/components/empty-header/empty
 import { AuthFooterComponent } from '../../shared/components/auth-footer/auth-footer.component';
 import { ActivatedRoute } from '@angular/router';
 import { LingomqButtonComponent } from '../../core/ui/lingomq-button/lingomq-button.component';
-import { LingomqWordsService } from '../../shared/services/integrations/lingomq-api/lingomq-words/lingomq-words.service';
+import {
+  LibraryAlphabeticComponent,
+  LingomqWordsService,
+} from '../../shared/services/integrations/lingomq-api/lingomq-words/lingomq-words.service';
 import { GetWordRequestModel } from '../../shared/services/integrations/lingomq-api/lingomq-words/models/get-word-request-model';
-import { CommonModule, NgFor, NgForOf, UpperCasePipe } from '@angular/common';
-import { elementAt } from 'rxjs';
+import { NgForOf, UpperCasePipe } from '@angular/common';
 
 @Component({
   selector: 'app-library',
@@ -81,30 +83,9 @@ export class LibraryComponent implements OnInit {
 
     this.wordsService.getWords(getWordRequest).subscribe((x) => {
       if (x.length > 0) {
-        this.wordInfos = this.transformToAlphabeticMap(x);
+        this.wordInfos = this.wordsService.transformToAlphabeticArray(x);
       }
     });
-  }
-
-  private transformToAlphabeticMap(
-    dtos: WordInfoDto[]
-  ): LibraryAlphabeticComponent[] {
-    const map: Map<string, WordInfoDto[]> = new Map();
-    dtos.forEach((element) => {
-      let prevValues: WordInfoDto[] = map.get(element.word[0]) ?? [];
-      prevValues.push(element);
-      map.set(element.word[0], prevValues);
-    });
-
-    const resultArray: LibraryAlphabeticComponent[] = [];
-    map.forEach((value: WordInfoDto[], key: string) => {
-      resultArray.push({
-        letter: key,
-        wordInfos: value,
-      });
-    });
-
-    return resultArray;
   }
 
   parseTranslationFromWordByLanguage(
@@ -113,9 +94,4 @@ export class LibraryComponent implements OnInit {
   ): WordInfoDto | undefined {
     return word.translations?.filter((x) => x.language.value == language)[0];
   }
-}
-
-export interface LibraryAlphabeticComponent {
-  letter: string;
-  wordInfos: WordInfoDto[];
 }

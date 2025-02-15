@@ -27,4 +27,31 @@ export class LingomqWordsService extends LingoMqApiConfiguration {
 
     return this.httpClient.get<WordInfoDto[]>(url, { headers });
   }
+
+  public transformToAlphabeticArray(
+    dtos: WordInfoDto[]
+  ): LibraryAlphabeticComponent[] {
+    const map: Map<string, WordInfoDto[]> = new Map();
+    dtos.forEach((element) => {
+      let prevValues: WordInfoDto[] = map.get(element.word[0]) ?? [];
+      prevValues.push(element);
+      map.set(element.word[0], prevValues);
+    });
+
+    const resultArray: LibraryAlphabeticComponent[] = [];
+    map.forEach((value: WordInfoDto[], key: string) => {
+      resultArray.push({
+        letter: key,
+        wordInfos: value,
+      });
+    });
+
+    return resultArray;
+  }
+}
+
+
+export interface LibraryAlphabeticComponent {
+  letter: string;
+  wordInfos: WordInfoDto[];
 }
