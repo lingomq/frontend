@@ -2,26 +2,42 @@
 <div class="content">
   <div class="content-title">
     <h1>{{ "library.title" | transloco }}</h1>
-    <p>{{ "library."+wordType | transloco }} </p>
+    <p>{{ "library." + wordType | transloco }}</p>
   </div>
   <div class="content-library-block">
     <div class="content-library-filter">
       <div class="content-library-filter-item">
         <label>{{ "lib.native" | transloco }}</label>
         <select>
-          <option>Russian</option>
-          <option>English</option>
-          <option>German</option>
-          <option>French</option>
+          <option value="russian">
+            {{ "lib-langs.russian" | transloco }}
+          </option>
+          <option value="english">
+            {{ "lib-langs.english" | transloco }}
+          </option>
+          <option value="german">
+            {{ "lib-langs.german" | transloco }}
+          </option>
+          <option value="french">
+            {{ "lib-langs.french" | transloco }}
+          </option>
         </select>
       </div>
       <div class="content-library-filter-item">
         <label>{{ "lib.source" | transloco }}</label>
         <select>
-          <option>Russian</option>
-          <option>English</option>
-          <option>German</option>
-          <option>French</option>
+          <option value="russian">
+            {{ "lib-langs.russian" | transloco }}
+          </option>
+          <option value="english">
+            {{ "lib-langs.english" | transloco }}
+          </option>
+          <option value="german">
+            {{ "lib-langs.german" | transloco }}
+          </option>
+          <option value="french">
+            {{ "lib-langs.french" | transloco }}
+          </option>
         </select>
       </div>
       <div class="content-library-filter-item">
@@ -30,24 +46,42 @@
       </div>
     </div>
     <div class="content-library-filter-mobile">
-      <lingomq-button (click)="showMobileFilter()">{{ "lib.filter" | transloco }}</lingomq-button>
+      <lingomq-button (click)="showMobileFilter()">{{
+        "lib.filter" | transloco
+      }}</lingomq-button>
       <div class="content-library-filter-mobile-item">
         <div class="content-library-filter-item">
           <label>{{ "lib.native" | transloco }}</label>
           <select>
-            <option>Russian</option>
-            <option>English</option>
-            <option>German</option>
-            <option>French</option>
+            <option value="russian">
+              {{ "lib-langs.russian" | transloco }}
+            </option>
+            <option value="english">
+              {{ "lib-langs.english" | transloco }}
+            </option>
+            <option value="german">
+              {{ "lib-langs.german" | transloco }}
+            </option>
+            <option value="french">
+              {{ "lib-langs.french" | transloco }}
+            </option>
           </select>
         </div>
         <div class="content-library-filter-item">
           <label>{{ "lib.source" | transloco }}</label>
           <select>
-            <option>Russian</option>
-            <option>English</option>
-            <option>German</option>
-            <option>French</option>
+            <option value="russian">
+              {{ "lib-langs.russian" | transloco }}
+            </option>
+            <option value="english">
+              {{ "lib-langs.english" | transloco }}
+            </option>
+            <option value="german">
+              {{ "lib-langs.german" | transloco }}
+            </option>
+            <option value="french">
+              {{ "lib-langs.french" | transloco }}
+            </option>
           </select>
         </div>
         <div class="content-library-filter-item">
@@ -57,16 +91,24 @@
       </div>
     </div>
     <div class="content-library-words-block">
-      <div *ngFor="let wordInfo of wordInfos" class="content-library-words-alphabetic-component">
+      <div
+        *ngFor="let wordInfo of wordInfos"
+        class="content-library-words-alphabetic-component"
+      >
         <div class="content-library-words-alphabetic-component-header">
           <h1>{{ wordInfo.letter | uppercase }}</h1>
           <hr />
         </div>
         <div class="content-library-words-alphabetic-component-block">
-          <div *ngFor="let word of wordInfo.wordInfos" class="content-library-word">
-            <p>{{word.word}}</p>
-            <i>{{word.transcription}}</i>
-            <i>{{parseTranslationFromWordByLanguage(word, "russian")?.word}}</i>
+          <div
+            *ngFor="let word of wordInfo.wordInfos"
+            class="content-library-word"
+          >
+            <p>{{ word.word }}</p>
+            <i>{{ word.transcription }}</i>
+            <i>{{
+              parseTranslationFromWordByLanguage(word, "russian")?.word
+            }}</i>
           </div>
         </div>
       </div>

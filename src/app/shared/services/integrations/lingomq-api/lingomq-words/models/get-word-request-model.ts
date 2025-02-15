@@ -5,4 +5,5 @@ export interface GetWordRequestModel {
   thematics: string | 'general';
   take: number | 20;
   skip: number | 0;
+  searchedWord: string | ""
 }

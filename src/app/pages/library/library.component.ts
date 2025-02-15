@@ -1,3 +1,4 @@
+import { LanguageDto } from './../../shared/services/integrations/lingomq-api/lingomq-words/models/language-dto';
 import { WordInfoDto } from './../../shared/services/integrations/lingomq-api/lingomq-words/models/word-info-dto';
 import { Component, OnInit } from '@angular/core';
 import { TranslocoModule, TranslocoPipe } from '@jsverse/transloco';
@@ -33,7 +34,15 @@ export class LibraryComponent implements OnInit {
   skip: number = -this.pageSize;
   filterOpened = false;
   wordInfos: LibraryAlphabeticComponent[] = [];
-
+  filter: LibraryFilter = {
+    languageFrom: 'english',
+    languageFromCode: 'en',
+    languageFromSubCode: 'US',
+    languageTo: 'russian',
+    languageToCode: 'ru',
+    languageToSubCode: 'RU',
+    searchedWord: '',
+  };
   constructor(
     private activatedRoute: ActivatedRoute,
     private wordsService: LingomqWordsService
@@ -43,6 +52,47 @@ export class LibraryComponent implements OnInit {
       this.activatedRoute.snapshot.queryParamMap.get('wordtype');
     this.wordType = queryWordType != null ? queryWordType : 'any';
     this.next();
+  }
+
+  public useFilter(
+    languageFrom: string = '',
+    languageTo: string = '',
+    searchedValue: string = ''
+  ) {
+    // temp sln
+    const languageMap: Map<string, string[]> = new Map();
+    languageMap.set('english', ['en', 'US']);
+    languageMap.set('russian', ['ru', 'RU']);
+    languageMap.set('german', ['gr', 'GR']);
+    languageMap.set('french', ['fr', 'FR']);
+
+    this.filter = {
+      languageFrom:
+        languageFrom == '' ? this.filter.languageFrom : languageFrom,
+      languageFromCode:
+        languageFrom == ''
+          ? this.filter.languageFromCode
+          : languageMap.get(languageFrom)![0],
+      languageFromSubCode:
+        languageFrom == ''
+          ? this.filter.languageFromCode
+          : languageMap.get(languageFrom)![1],
+      languageTo: languageTo == '' ? this.filter.languageTo : languageTo,
+      languageToCode:
+        languageTo == ''
+          ? this.filter.languageToCode
+          : languageMap.get(languageTo)![0],
+      languageToSubCode:
+        languageTo == ''
+          ? this.filter.languageToCode
+          : languageMap.get(languageTo)![1],
+      searchedWord:
+        searchedValue == '' ? this.filter.searchedWord : searchedValue,
+    };
+
+    console.log(this.filter)
+
+    this.setWordsInfos();
   }
 
   showMobileFilter() {
@@ -56,6 +106,10 @@ export class LibraryComponent implements OnInit {
       this.filterOpened = false;
       filter.classList.remove('active-flex');
     }
+  }
+
+  parseInput(e: any) {
+    return e.target.value;
   }
 
   next() {
@@ -73,12 +127,13 @@ export class LibraryComponent implements OnInit {
 
   setWordsInfos() {
     const getWordRequest: GetWordRequestModel = {
-      language: 'english',
-      code: 'en',
-      subCode: 'US',
+      language: this.filter.languageFrom,
+      code: this.filter.languageFromCode,
+      subCode: this.filter.languageFromSubCode,
       thematics: this.wordType!,
       skip: this.skip,
       take: this.take,
+      searchedWord: this.filter.searchedWord,
     };
 
     this.wordsService.getWords(getWordRequest).subscribe((x) => {
@@ -94,4 +149,14 @@ export class LibraryComponent implements OnInit {
   ): WordInfoDto | undefined {
     return word.translations?.filter((x) => x.language.value == language)[0];
   }
+}
+
+export interface LibraryFilter {
+  languageFrom: string;
+  languageFromCode: string;
+  languageFromSubCode: string;
+  languageTo: string;
+  languageToCode: string;
+  languageToSubCode: string;
+  searchedWord: string | '';
 }
