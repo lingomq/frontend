@@ -57,94 +57,24 @@
       </div>
     </div>
     <div class="content-library-words-block">
-      <div class="content-library-words-alphabetic-component">
+      <div *ngFor="let wordInfo of wordInfos" class="content-library-words-alphabetic-component">
         <div class="content-library-words-alphabetic-component-header">
-          <h1>A</h1>
+          <h1>{{ wordInfo.letter | uppercase }}</h1>
           <hr />
         </div>
         <div class="content-library-words-alphabetic-component-block">
-          <div class="content-library-word">
-            <p>Apple</p>
-            <i>[aepl’]</i>
-            <i>яблоко</i>
-          </div>
-          <div class="content-library-word">
-            <p>Apple</p>
-            <i>[aepl’]</i>
-            <i>яблоко</i>
-          </div>
-          <div class="content-library-word">
-            <p>Apple</p>
-            <i>[aepl’]</i>
-            <i>яблоко</i>
-          </div>
-          <div class="content-library-word">
-            <p>Apple</p>
-            <i>[aepl’]</i>
-            <i>яблоко</i>
-          </div>
-          <div class="content-library-word">
-            <p>Apple</p>
-            <i>[aepl’]</i>
-            <i>яблоко</i>
-          </div>
-          <div class="content-library-word">
-            <p>Apple</p>
-            <i>[aepl’]</i>
-            <i>яблоко</i>
-          </div>
-          <div class="content-library-word">
-            <p>Apple</p>
-            <i>[aepl’]</i>
-            <i>яблоко</i>
-          </div>
-          <div class="content-library-word">
-            <p>Apple</p>
-            <i>[aepl’]</i>
-            <i>яблоко</i>
-          </div>
-          <div class="content-library-word">
-            <p>Apple</p>
-            <i>[aepl’]</i>
-            <i>яблоко</i>
-          </div>
-          <div class="content-library-word">
-            <p>Apple</p>
-            <i>[aepl’]</i>
-            <i>яблоко</i>
-          </div>
-          <div class="content-library-word">
-            <p>Apple</p>
-            <i>[aepl’]</i>
-            <i>яблоко</i>
-          </div>
-          <div class="content-library-word">
-            <p>Apple</p>
-            <i>[aepl’]</i>
-            <i>яблоко</i>
-          </div>
-          <div class="content-library-word">
-            <p>Apple</p>
-            <i>[aepl’]</i>
-            <i>яблоко</i>
-          </div>
-          <div class="content-library-word">
-            <p>Apple</p>
-            <i>[aepl’]</i>
-            <i>яблоко</i>
+          <div *ngFor="let word of wordInfo.wordInfos" class="content-library-word">
+            <p>{{word.word}}</p>
+            <i>{{word.transcription}}</i>
+            <i>{{parseTranslationFromWordByLanguage(word, "russian")?.word}}</i>
           </div>
         </div>
       </div>
     </div>
     <div class="content-library-pagination-block">
       <div class="content-library-pagination">
-        <lingomq-button><</lingomq-button>
-        <a href="lib">1</a>
-        <a href="lib">2</a>
-        <a href="lib">3</a>
-        <a href="lib">...</a>
-        <a href="lib">74</a>
-        <lingomq-button>></lingomq-button>
+        <lingomq-button (click)="prev()"><</lingomq-button>
+        <lingomq-button (click)="next()">></lingomq-button>
       </div>
     </div>
   </div>

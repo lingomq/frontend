@@ -4,7 +4,12 @@ import { EmptyHeaderComponent } from '../../shared/components/empty-header/empty
 import { GeneralFooterComponent } from '../../shared/components/general-footer/general-footer.component';
 import { LingomqButtonComponent } from '../../core/ui/lingomq-button/lingomq-button.component';
 import { LingomqIdentityService } from '../../shared/services/integrations/lingomq-api/lingomq-identity/lingomq-identity.service';
-import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormControl,
+  FormGroup,
+  FormsModule,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { CreateUserModel } from '../../shared/services/integrations/lingomq-api/lingomq-identity/models/create-user-model';
 
 @Component({
@@ -15,7 +20,7 @@ import { CreateUserModel } from '../../shared/services/integrations/lingomq-api/
     GeneralFooterComponent,
     LingomqButtonComponent,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [TranslocoPipe],
   templateUrl: './sign-up.component.html',
@@ -28,29 +33,27 @@ export class SignUpComponent implements OnInit {
     password: new FormControl(''),
   });
 
-  constructor(private identityService: LingomqIdentityService) {
-
-  }
+  constructor(private identityService: LingomqIdentityService) {}
 
   ngOnInit(): void {
-    if (LingomqIdentityService.isAuth()) window.location.href = 'library'
+    if (LingomqIdentityService.isAuth()) window.location.href = 'library';
   }
 
   public signUp(): void {
     const body: CreateUserModel = {
       UserDto: {
-        nickname: this.signModel.value.nickname!
+        nickname: this.signModel.value.nickname!,
       },
       SignModel: {
         Type: 0,
         SignKey: this.signModel.value.email!,
-        SignValue: this.signModel.value.password!
-      }
-    }
+        SignValue: this.signModel.value.password!,
+      },
+    };
 
-    this.identityService.signUp(body).subscribe(x => {
-      alert("success");
-      window.location.href = 'account'
+    this.identityService.signUp(body).subscribe((x) => {
+      alert('success');
+      window.location.href = 'account';
     });
   }
 }
