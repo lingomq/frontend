@@ -8,12 +8,12 @@
     <div class="content-library-filter">
       <div class="content-library-filter-item">
         <label>{{ "lib.native" | transloco }}</label>
-        <select>
-          <option value="russian">
-            {{ "lib-langs.russian" | transloco }}
-          </option>
+        <select (change)="useFilterEventHandler($event, 0)">
           <option value="english">
             {{ "lib-langs.english" | transloco }}
+          </option>
+          <option value="russian">
+            {{ "lib-langs.russian" | transloco }}
           </option>
           <option value="german">
             {{ "lib-langs.german" | transloco }}
@@ -25,7 +25,7 @@
       </div>
       <div class="content-library-filter-item">
         <label>{{ "lib.source" | transloco }}</label>
-        <select>
+        <select (change)="useFilterEventHandler($event, 1)">
           <option value="russian">
             {{ "lib-langs.russian" | transloco }}
           </option>
@@ -42,7 +42,7 @@
       </div>
       <div class="content-library-filter-item">
         <label>{{ "lib.search" | transloco }}</label>
-        <input type="text" placeholder="search" />
+        <input type="text" placeholder="search" (keyup)="useFilterEventHandler($event, 2)"/>
       </div>
     </div>
     <div class="content-library-filter-mobile">
@@ -52,12 +52,12 @@
       <div class="content-library-filter-mobile-item">
         <div class="content-library-filter-item">
           <label>{{ "lib.native" | transloco }}</label>
-          <select>
-            <option value="russian">
-              {{ "lib-langs.russian" | transloco }}
-            </option>
+          <select (change)="useFilterEventHandler($event, 0)">
             <option value="english">
               {{ "lib-langs.english" | transloco }}
+            </option>
+            <option value="russian">
+              {{ "lib-langs.russian" | transloco }}
             </option>
             <option value="german">
               {{ "lib-langs.german" | transloco }}
@@ -69,7 +69,7 @@
         </div>
         <div class="content-library-filter-item">
           <label>{{ "lib.source" | transloco }}</label>
-          <select>
+          <select (change)="useFilterEventHandler($event, 1)">
             <option value="russian">
               {{ "lib-langs.russian" | transloco }}
             </option>
@@ -86,7 +86,7 @@
         </div>
         <div class="content-library-filter-item">
           <label>{{ "lib.search" | transloco }}</label>
-          <input type="text" placeholder="search" />
+          <input type="text" placeholder="search" (keyup)="useFilterEventHandler($event, 2)"/>
         </div>
       </div>
     </div>

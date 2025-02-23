@@ -30,8 +30,8 @@ import { NgForOf, UpperCasePipe } from '@angular/common';
 export class LibraryComponent implements OnInit {
   wordType: string | null = 'any';
   pageSize: number = 20;
-  take: number = 0;
-  skip: number = -this.pageSize;
+  take: number = this.pageSize;
+  skip: number = 0;
   filterOpened = false;
   wordInfos: LibraryAlphabeticComponent[] = [];
   filter: LibraryFilter = {
@@ -51,13 +51,29 @@ export class LibraryComponent implements OnInit {
     let queryWordType =
       this.activatedRoute.snapshot.queryParamMap.get('wordtype');
     this.wordType = queryWordType != null ? queryWordType : 'any';
-    this.next();
+    this.setWordsInfos();
+  }
+
+  public useFilterEventHandler(e: any, filterType: FilterType) {
+    switch (filterType) {
+      case FilterType.languageFrom:
+        this.useFilter(e.target.value, '', '')
+        break;
+      case FilterType.languageTo:
+        this.useFilter('', e.target.value, '')
+        break;
+      case FilterType.search:
+        this.useFilter('', '', e.target.value)
+        break;
+    }
+
+    console.log(e.target.value)
   }
 
   public useFilter(
     languageFrom: string = '',
     languageTo: string = '',
-    searchedValue: string = ''
+    searchedValue: string
   ) {
     // temp sln
     const languageMap: Map<string, string[]> = new Map();
@@ -75,7 +91,7 @@ export class LibraryComponent implements OnInit {
           : languageMap.get(languageFrom)![0],
       languageFromSubCode:
         languageFrom == ''
-          ? this.filter.languageFromCode
+          ? this.filter.languageFromSubCode
           : languageMap.get(languageFrom)![1],
       languageTo: languageTo == '' ? this.filter.languageTo : languageTo,
       languageToCode:
@@ -84,13 +100,11 @@ export class LibraryComponent implements OnInit {
           : languageMap.get(languageTo)![0],
       languageToSubCode:
         languageTo == ''
-          ? this.filter.languageToCode
+          ? this.filter.languageToSubCode
           : languageMap.get(languageTo)![1],
       searchedWord:
-        searchedValue == '' ? this.filter.searchedWord : searchedValue,
+        searchedValue = searchedValue,
     };
-
-    console.log(this.filter)
 
     this.setWordsInfos();
   }
@@ -119,9 +133,9 @@ export class LibraryComponent implements OnInit {
   }
 
   prev() {
-    this.skip = this.skip - this.pageSize < 0 ? 0 : this.skip - this.pageSize;
+    this.skip = this.skip - this.pageSize <= 0 ? 0 : this.skip - this.pageSize;
     this.take =
-      this.take - this.pageSize < 0 ? this.pageSize : this.take - this.pageSize;
+      this.take - this.pageSize <= 0 ? this.pageSize : this.take - this.pageSize;
     this.setWordsInfos();
   }
 
@@ -137,9 +151,7 @@ export class LibraryComponent implements OnInit {
     };
 
     this.wordsService.getWords(getWordRequest).subscribe((x) => {
-      if (x.length > 0) {
         this.wordInfos = this.wordsService.transformToAlphabeticArray(x);
-      }
     });
   }
 
@@ -159,4 +171,10 @@ export interface LibraryFilter {
   languageToCode: string;
   languageToSubCode: string;
   searchedWord: string | '';
+}
+
+export enum FilterType {
+  languageFrom,
+  languageTo,
+  search
 }

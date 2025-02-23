@@ -20,7 +20,7 @@ export class LingomqWordsService extends LingoMqApiConfiguration {
   ): Observable<WordInfoDto[]> {
     const url =
       this.apiPath +
-      `words/${requestModel.language}/${requestModel.code}/${requestModel.subCode}?take=${requestModel.take}&skip=${requestModel.skip}&thematics=${requestModel.thematics}`;
+      `words/${requestModel.language}/${requestModel.code}/${requestModel.subCode}?take=${requestModel.take}&skip=${requestModel.skip}&thematics=${requestModel.thematics}&searchedWord=${requestModel.searchedWord}`;
     const headers = new HttpHeaders({
       Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
     });
