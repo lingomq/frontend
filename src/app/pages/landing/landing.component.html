@@ -1,0 +1,63 @@
+<app-general-header></app-general-header>
+<div class="content">
+  <div class="content-welcome">
+    <div class="content-welcome-title">
+      <h1>{{ "welcome.title" | transloco }}<br /><i>lingoMq</i></h1>
+    </div>
+    <div class="content-welcome-image">
+      <div class="content-welcome-image-boat">
+        <img src="../../../assets/img/boat.svg" alt="boat" />
+      </div>
+      <div class="content-welcome-image-sea">
+        <!-- <img src="../../../assets/img/sea.svg" alt="sea" /> -->
+      </div>
+    </div>
+  </div>
+  <div class="content-about">
+    <div class="content-about-block">
+      <div class="content-about-block-left-align-content">
+        <h2>{{ "landing.about1-title" | transloco }} <i>LingoMq</i></h2>
+        <p>{{ "landing.about1-desc" | transloco }}</p>
+        <lingomq-button>{{ "landing.about1-site" | transloco }}</lingomq-button>
+      </div>
+      <div class="content-about-block-left-align-image">
+        <img src="../../../assets/img/logo.png" alt="logo" />
+      </div>
+    </div>
+    <div class="content-about-block">
+      <div class="content-about-block-right-align-content">
+        <h2>{{ "landing.about2-title" | transloco }}</h2>
+        <p>{{ "landing.about2-desc" | transloco }}</p>
+      </div>
+      <div class="content-about-block-right-align-image">
+        <img src="../../../assets/img/phone.svg" alt="logo" />
+      </div>
+    </div>
+    <div class="content-about-block">
+      <div class="content-about-block-left-align-content">
+        <h2>{{ "landing.about3-title" | transloco }}</h2>
+        <p>{{ "landing.about3-desc" | transloco }}</p>
+      </div>
+      <div class="content-about-block-left-align-image">
+        <img src="../../../assets/img/bottle.svg" alt="logo" />
+      </div>
+    </div>
+    <div class="content-about-block">
+      <div class="content-about-block-right-align-content">
+        <h2>{{ "landing.about4-title" | transloco }}</h2>
+        <p>{{ "landing.about4-desc" | transloco }}</p>
+      </div>
+      <div class="content-about-block-right-align-image">
+        <img src="../../../assets/img/newspapers.svg" alt="logo" />
+      </div>
+    </div>
+  </div>
+  <div class="content-sign-in">
+    <h1>{{ "landing.sign-in-title" | transloco }}</h1>
+    <p>{{ "landing.sign-in-desc" | transloco }}</p>
+    <lingomq-button onclick="window.location.href = '/sign-in';">{{
+      "landing.sign-in-button" | transloco
+    }}</lingomq-button>
+  </div>
+</div>
+<app-general-footer></app-general-footer>

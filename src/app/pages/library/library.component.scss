@@ -1,0 +1,183 @@
+@import "styles";
+
+.content {
+  margin-top: 100px;
+  margin-bottom: 100px;
+  .content-title {
+    h1 {
+      font-size: 56px;
+      font-weight: 900;
+      margin: 0;
+      @media screen and (max-width: 1160px) {
+        text-align: center;
+        font-size: 48px;
+      }
+      @media screen and (max-width: 750px) {
+        text-align: center;
+        font-size: 26px;
+      }
+    }
+
+    p {
+      font-size: 28px;
+      font-weight: 700;
+      margin: 0;
+      @media screen and (max-width: 1160px) {
+        text-align: center;
+        font-size: 20px;
+      }
+      @media screen and (max-width: 750px) {
+        text-align: center;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .content-library-block {
+    .content-library-filter {
+      margin-top: 25px;
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+      .content-library-filter-item {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0;
+        width: 200px;
+
+        label {
+          font-size: 20px;
+          font-weight: 600;
+          margin-bottom: 20px;
+        }
+
+        input {
+          height: 40px;
+          background: var(--background-secondary-light);
+          padding: 10px 20px;
+          border: none;
+          border-radius: 15px;
+          font-size: 20px;
+          font-family: var($mainFont);
+        }
+
+        select {
+          height: 60px;
+          background: var(--background-secondary-light);
+          padding: 0 20px;
+          border: none;
+          border-radius: 15px;
+          font-size: 20px;
+          font-family: var($mainFont);
+        }
+
+        @media screen and (max-width: 850px) {
+          display: none;
+        }
+      }
+    }
+
+    .content-library-filter-mobile {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      .content-library-filter-mobile-item {
+        margin-top: 25px;
+        display: none;
+        flex-direction: column;
+        gap: 30px;
+      }
+
+      .content-library-filter-item {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0;
+        width: 200px;
+
+        label {
+          font-size: 20px;
+          font-weight: 600;
+          margin-bottom: 20px;
+        }
+
+        input {
+          height: 40px;
+          background: var(--background-secondary-light);
+          padding: 10px 20px;
+          border: none;
+          border-radius: 15px;
+          font-size: 20px;
+          font-family: var($mainFont);
+        }
+
+        select {
+          height: 60px;
+          background: var(--background-secondary-light);
+          padding: 0 20px;
+          border: none;
+          border-radius: 15px;
+          font-size: 20px;
+          font-family: var($mainFont);
+        }
+      }
+      @media screen and (max-width: 850px) {
+        display: flex;
+      }
+
+      .active-flex {
+        display: flex;
+      }
+
+      .disable-flex {
+        display: none;
+      }
+    }
+  }
+
+  .content-library-words-block {
+    height: 50vh;
+    overflow-x: auto;
+    .content-library-words-alphabetic-component {
+      .content-library-words-alphabetic-component-block {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        // justify-content: center;
+        gap: 50px;
+        .content-library-word {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          background: var(--background-secondary-light);
+          width: 320px;
+          border-radius: 15px;
+          padding: 15px 15px;
+          text-align: center;
+          p {
+            font-size: 28px;
+            font-weight: 600;
+            line-height: 15px;
+            margin: 10px 0;
+          }
+        }
+
+        @media screen and (max-width: 1000px) {
+          justify-content: center;
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 800px) {
+    margin-left: 25px;
+    margin-right: 25px;
+    align-items: center;
+    justify-content: center;
+  }
+  .content-library-pagination-block {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+}

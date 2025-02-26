@@ -1,0 +1,62 @@
+<app-empty-header></app-empty-header>
+<div class="content">
+  <div class="content-title">
+    <h1>{{ "account.title" | transloco }}</h1>
+  </div>
+  <div class="content-account-block">
+    <div class="content-account">
+      <div class="content-account-image">
+        <img src="../../../assets/img/temp.jpg" alt="profile-img" />
+      </div>
+      <div class="content-account-desc">
+        <p *ngIf="user$ | async as user">{{user.nickname}}</p>
+        <p>{{ "zxc.danil@inbox.ru" }}</p>
+      </div>
+    </div>
+    <div class="content-account-cards">
+      <div class="content-account-cards-card">
+        <div class="content-account-cards-card-icon">
+          <img src="../../../assets/icons/docs.svg" alt="personal" />
+        </div>
+        <h4>{{ "account.personal-title" | transloco }}</h4>
+        <p>{{ "account.personal-desc" | transloco }}</p>
+      </div>
+      <div class="content-account-cards-card">
+        <div class="content-account-cards-card-icon">
+          <img src="../../../assets/icons/bell.svg" alt="notifications" />
+        </div>
+        <h4>{{ "account.notification-title" | transloco }}</h4>
+        <p>{{ "account.notification-desc" | transloco }}</p>
+      </div>
+      <div class="content-account-cards-card">
+        <div class="content-account-cards-card-icon">
+          <img src="../../../assets/icons/stats.svg" alt="statistics" />
+        </div>
+        <h4>{{ "account.statistics-title" | transloco }}</h4>
+        <p>{{ "account.statistics-desc" | transloco }}</p>
+      </div>
+      <div class="content-account-cards-card">
+        <div class="content-account-cards-card-icon">
+          <img src="../../../assets/icons/lock.svg" alt="security" />
+        </div>
+        <h4>{{ "account.security-title" | transloco }}</h4>
+        <p>{{ "account.security-desc" | transloco }}</p>
+      </div>
+      <div class="content-account-cards-card">
+        <div class="content-account-cards-card-icon">
+          <img src="../../../assets/icons/settings.svg" alt="settings" />
+        </div>
+        <h4>{{ "account.settings-title" | transloco }}</h4>
+        <p>{{ "account.settings-desc" | transloco }}</p>
+      </div>
+      <div class="content-account-cards-card">
+        <div class="content-account-cards-card-icon">
+          <img src="../../../assets/icons/exit.svg" alt="leave" />
+        </div>
+        <h4>{{ "account.leave-title" | transloco }}</h4>
+        <p>{{ "account.leave-desc" | transloco }}</p>
+      </div>
+    </div>
+  </div>
+</div>
+<app-auth-footer></app-auth-footer>

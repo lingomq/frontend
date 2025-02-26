@@ -1,0 +1,94 @@
+@import "styles";
+
+.content {
+  margin-top: 100px;
+  margin-bottom: 100px;
+
+  .content-title {
+    h1 {
+      font-size: 56px;
+      font-weight: 900;
+
+      @media screen and (max-width: 1160px) {
+        text-align: center;
+        font-size: 48px;
+      }
+      @media screen and (max-width: 750px) {
+        text-align: center;
+        font-size: 26px;
+      }
+    }
+  }
+
+  .content-account-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 100px;
+
+    .content-account {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 50px;
+
+      .content-account-image {
+        img {
+          width: 110px;
+          border-radius: 50%;
+          @media screen and (max-width: 750px) {
+            width: 85px;
+          }
+        }
+      }
+
+      .content-account-desc {
+        p {
+          font-size: 20px;
+          font-weight: 600;
+          line-height: 5px;
+
+          @media screen and (max-width: 750px) {
+            font-size: 16px;
+          }
+        }
+      }
+    }
+
+    .content-account-cards {
+      margin-top: 50px;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 50px;
+      .content-account-cards-card {
+        background: var(--background-secondary-light);
+        width: 320px;
+        border-radius: 15px;
+        padding: 15px 15px;
+
+        .content-account-cards-card-icon {
+          img {
+            margin: 0;
+          }
+        }
+
+        h4 {
+          line-height: 5px;
+          margin: 5px 0;
+        }
+
+        p {
+          line-height: 15px;
+        }
+      }
+    }
+
+    @media screen and (max-width: 800px) {
+      margin: 0 25px;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+}
