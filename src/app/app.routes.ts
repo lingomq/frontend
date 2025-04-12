@@ -6,6 +6,9 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { AccountComponent } from './pages/account/account.component';
 import { LibraryMainComponent } from './pages/library-main/library-main.component';
 import { LibraryComponent } from './pages/library/library.component';
+import { AccountPersonalDataComponent } from './pages/account-personal-data/account-personal-data.component';
+import { AccountSecurityComponent } from './pages/account-security/account-security.component';
+import { GlobalSettingsComponent } from './pages/global-settings/global-settings.component';
 
 export const routes: Routes = [
   {
@@ -23,6 +26,18 @@ export const routes: Routes = [
   {
     path: 'account',
     component: AccountComponent
+  },
+  {
+    path: 'account-personal-data',
+    component: AccountPersonalDataComponent
+  },
+  {
+    path: 'account-security',
+    component: AccountSecurityComponent
+  },
+  {
+    path: 'global-settings',
+    component: GlobalSettingsComponent
   },
   {
     path: 'library',

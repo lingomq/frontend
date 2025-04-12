@@ -1,3 +1,7 @@
-<button [class]="type" (click)="buttonClick.emit($event)">
+<button
+  [class]="type"
+  (click)="buttonClick.emit($event)"
+  type="{{ buttonType }}"
+>
   <ng-content></ng-content>
 </button>

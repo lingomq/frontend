@@ -6,15 +6,20 @@ import {
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { provideHttpClient } from '@angular/common/http';
+import {
+  HTTP_INTERCEPTORS,
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 import { provideTransloco } from '@jsverse/transloco';
 import { TranslocoHttpLoader } from './transloco-loader';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { JwtTokenInterceptor } from './shared/interceptors/jwt-token-interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideHttpClient(),
+    provideHttpClient(withInterceptorsFromDi()),
     provideRouter(routes),
     provideTransloco({
       config: {
@@ -26,5 +31,6 @@ export const appConfig: ApplicationConfig = {
       loader: TranslocoHttpLoader,
     }),
     provideAnimationsAsync(),
+    { provide: HTTP_INTERCEPTORS, useClass: JwtTokenInterceptor, multi: true },
   ],
 };

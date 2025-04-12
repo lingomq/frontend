@@ -9,6 +9,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class LingomqButtonComponent {
   @Input() type: 'primary' | 'warning' | 'alternative' | 'error' = 'primary';
+  @Input() buttonType: 'button' | 'submit' | 'reset' = 'submit';
 
   @Output() buttonClick = new EventEmitter<MouseEvent>();
 }

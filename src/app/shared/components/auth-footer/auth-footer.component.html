@@ -20,9 +20,9 @@
     </div>
     <div class="auth-footer-nav-button" onclick="window.location.href = '/account';">
       <div class="auth-footer-nav-profile-icon">
-        <img src="{{profileImageSource}}" alt="profile-img"/>
+        <img [src]="imageToShow" alt="profile-img"/>
       </div>
-      {{profileName}}
+      <p *ngIf="user$ | async as user">{{user.nickname}}</p>
     </div>
   </div>
 </div>

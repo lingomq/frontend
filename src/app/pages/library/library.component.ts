@@ -66,8 +66,6 @@ export class LibraryComponent implements OnInit {
         this.useFilter('', '', e.target.value)
         break;
     }
-
-    console.log(e.target.value)
   }
 
   public useFilter(

@@ -1,6 +1,15 @@
 {
   "general": {
-    "copyright-text": "Все права защищены"
+    "copyright-text": "Все права защищены",
+    "update": "Обновить",
+    "settings": "Настройки",
+    "global": "Глобальные"
+  },
+  "settings": {
+    "select-theme": "Тема приложения",
+    "theme-light": "Светлая тема",
+    "theme-dark": "Темная тема",
+    "default-theme": "Выберите"
   },
   "header": {
     "start": "Начать",
@@ -68,7 +77,16 @@
     "settings-title": "Глобальные настройки",
     "settings-desc": "Настройте тему, язык приложения",
     "leave-title": "Выход или удаление данных",
-    "leave-desc": "Выйдите из приложения или удалите данные об аккаунте"
+    "leave-desc": "Выйдите из приложения или удалите данные об аккаунте",
+    "nickname-input": "Имя профиля",
+    "description-input": "Описание профиля",
+    "email-input": "Новая почта",
+    "update-photo": "Обновить фото"
+  },
+  "account-security": {
+    "change-password": "Смена пароля",
+    "old-password-input": "Старый пароль",
+    "new-password-input": "Новый пароль"
   },
   "library": {
     "title": "Библиотека",

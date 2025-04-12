@@ -46,7 +46,9 @@ $mainFont: "Montserrat";
   --background-secondary-light: #f5f5f5;
   --background-primary-dark: #1e1e1e;
 
-  --foreground-primary: #000000;
+  --foreground-primary-light: #000000;
+  --background-secondary-dark: #333333;
+  --foreground-anti: #ebebeb;
   --foreground-secondary: #00a3ff;
   --foreground-alternative: #b1b1b1;
 
@@ -67,10 +69,18 @@ body {
 
 html[data-theme="light"] {
   --background-primary: var(--background-primary-light);
+  --foreground-primary: var(--foreground-primary-light);
+  --background-secondary: var(--background-secondary-light);
 }
 
 html[data-theme="dark"] {
   --background-primary: var(--background-primary-dark);
+  --foreground-primary: var(--foreground-anti);
+  --background-secondary: var(--background-secondary-dark);
+}
+
+h1, h2, h3, h4, h5, h6, p, div {
+  color: var(--foreground-primary);
 }
 
 .root {
