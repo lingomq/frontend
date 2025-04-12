@@ -38,9 +38,9 @@ export class LibraryComponent implements OnInit {
     languageFrom: 'english',
     languageFromCode: 'en',
     languageFromSubCode: 'US',
-    languageTo: 'russian',
-    languageToCode: 'ru',
-    languageToSubCode: 'RU',
+    languageTo: '',
+    languageToCode: '',
+    languageToSubCode: '',
     searchedWord: '',
   };
   constructor(
@@ -57,13 +57,13 @@ export class LibraryComponent implements OnInit {
   public useFilterEventHandler(e: any, filterType: FilterType) {
     switch (filterType) {
       case FilterType.languageFrom:
-        this.useFilter(e.target.value, '', '')
+        this.useFilter(e.target.value, '', '');
         break;
       case FilterType.languageTo:
-        this.useFilter('', e.target.value, '')
+        this.useFilter('', e.target.value, '');
         break;
       case FilterType.search:
-        this.useFilter('', '', e.target.value)
+        this.useFilter('', '', e.target.value);
         break;
     }
   }
@@ -75,6 +75,7 @@ export class LibraryComponent implements OnInit {
   ) {
     // temp sln
     const languageMap: Map<string, string[]> = new Map();
+    languageMap.set('', ['', '']);
     languageMap.set('english', ['en', 'US']);
     languageMap.set('russian', ['ru', 'RU']);
     languageMap.set('german', ['gr', 'GR']);
@@ -91,17 +92,12 @@ export class LibraryComponent implements OnInit {
         languageFrom == ''
           ? this.filter.languageFromSubCode
           : languageMap.get(languageFrom)![1],
-      languageTo: languageTo == '' ? this.filter.languageTo : languageTo,
+      languageTo: languageTo,
       languageToCode:
-        languageTo == ''
-          ? this.filter.languageToCode
-          : languageMap.get(languageTo)![0],
+        languageMap.get(languageTo)![0],
       languageToSubCode:
-        languageTo == ''
-          ? this.filter.languageToSubCode
-          : languageMap.get(languageTo)![1],
-      searchedWord:
-        searchedValue = searchedValue,
+        languageMap.get(languageTo)![1],
+      searchedWord: (searchedValue = searchedValue),
     };
 
     this.setWordsInfos();
@@ -133,7 +129,9 @@ export class LibraryComponent implements OnInit {
   prev() {
     this.skip = this.skip - this.pageSize <= 0 ? 0 : this.skip - this.pageSize;
     this.take =
-      this.take - this.pageSize <= 0 ? this.pageSize : this.take - this.pageSize;
+      this.take - this.pageSize <= 0
+        ? this.pageSize
+        : this.take - this.pageSize;
     this.setWordsInfos();
   }
 
@@ -146,10 +144,13 @@ export class LibraryComponent implements OnInit {
       skip: this.skip,
       take: this.take,
       searchedWord: this.filter.searchedWord,
+      languageTo: this.filter.languageTo,
+      codeTo: this.filter.languageToCode,
+      subCodeTo: this.filter.languageToSubCode,
     };
 
     this.wordsService.getWords(getWordRequest).subscribe((x) => {
-        this.wordInfos = this.wordsService.transformToAlphabeticArray(x);
+      this.wordInfos = this.wordsService.transformToAlphabeticArray(x);
     });
   }
 
@@ -174,5 +175,5 @@ export interface LibraryFilter {
 export enum FilterType {
   languageFrom,
   languageTo,
-  search
+  search,
 }

@@ -17,9 +17,17 @@ export class LingomqWordsService extends LingoMqApiConfiguration {
   public getWords(
     requestModel: GetWordRequestModel
   ): Observable<WordInfoDto[]> {
-    const url =
+    var url =
       this.apiPath +
-      `words/${requestModel.language}/${requestModel.code}/${requestModel.subCode}?take=${requestModel.take}&skip=${requestModel.skip}&thematics=${requestModel.thematics}&searchedWord=${requestModel.searchedWord}`;
+      `words/${requestModel.language}/${requestModel.code}/${requestModel.subCode}`;
+
+    url += `?take=${requestModel.take}&skip=${requestModel.skip}`;
+    url += `&thematics=${requestModel.thematics}&searchedWord=${requestModel.searchedWord}`;
+    url +=
+      requestModel.languageTo != ''
+        ? `&languageTo=${requestModel.languageTo}&codeTo=${requestModel.codeTo}&subCodeTo=${requestModel.subCodeTo}`
+        : '';
+
     const headers = new HttpHeaders({
       Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
     });
@@ -48,7 +56,6 @@ export class LingomqWordsService extends LingoMqApiConfiguration {
     return resultArray;
   }
 }
-
 
 export interface LibraryAlphabeticComponent {
   letter: string;
