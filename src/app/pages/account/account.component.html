@@ -6,22 +6,26 @@
   <div class="content-account-block">
     <div class="content-account">
       <div class="content-account-image">
-        <img src="../../../assets/img/temp.jpg" alt="profile-img" />
+        <img [src]="imageToShow" alt="profile-img" />
+        <!-- <canvas class="content-account-image__img"></canvas> -->
       </div>
       <div class="content-account-desc">
-        <p *ngIf="user$ | async as user">{{user.nickname}}</p>
-        <p>{{ "zxc.danil@inbox.ru" }}</p>
+        <p *ngIf="user$ | async as user">{{ user.nickname }}</p>
+        <p>{{ userEmail }}</p>
       </div>
     </div>
     <div class="content-account-cards">
-      <div class="content-account-cards-card">
+      <div
+        class="content-account-cards-card"
+        onclick="window.location.href = '/account-personal-data';"
+      >
         <div class="content-account-cards-card-icon">
           <img src="../../../assets/icons/docs.svg" alt="personal" />
         </div>
         <h4>{{ "account.personal-title" | transloco }}</h4>
         <p>{{ "account.personal-desc" | transloco }}</p>
       </div>
-      <div class="content-account-cards-card">
+      <!-- <div class="content-account-cards-card">
         <div class="content-account-cards-card-icon">
           <img src="../../../assets/icons/bell.svg" alt="notifications" />
         </div>
@@ -34,22 +38,28 @@
         </div>
         <h4>{{ "account.statistics-title" | transloco }}</h4>
         <p>{{ "account.statistics-desc" | transloco }}</p>
-      </div>
-      <div class="content-account-cards-card">
+      </div> -->
+      <div
+        class="content-account-cards-card"
+        onclick="window.location.href = '/account-security';"
+      >
         <div class="content-account-cards-card-icon">
           <img src="../../../assets/icons/lock.svg" alt="security" />
         </div>
         <h4>{{ "account.security-title" | transloco }}</h4>
         <p>{{ "account.security-desc" | transloco }}</p>
       </div>
-      <div class="content-account-cards-card">
+      <div
+        class="content-account-cards-card"
+        onclick="window.location.href = '/global-settings'"
+      >
         <div class="content-account-cards-card-icon">
           <img src="../../../assets/icons/settings.svg" alt="settings" />
         </div>
         <h4>{{ "account.settings-title" | transloco }}</h4>
         <p>{{ "account.settings-desc" | transloco }}</p>
       </div>
-      <div class="content-account-cards-card">
+      <div class="content-account-cards-card" (click)="logout()">
         <div class="content-account-cards-card-icon">
           <img src="../../../assets/icons/exit.svg" alt="leave" />
         </div>

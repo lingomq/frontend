@@ -29,14 +29,18 @@
         max-height: 22px;
       }
 
+      p {
+        margin: 0;
+      }
+
       .auth-footer-nav-profile-icon {
         max-width: 22px;
         max-height: 22px;
 
         img {
-          object-fit: contain;
           border-radius: 50%;
-          width: 100%;
+          width: 22px;
+          height: 22px;
         }
       }
     }

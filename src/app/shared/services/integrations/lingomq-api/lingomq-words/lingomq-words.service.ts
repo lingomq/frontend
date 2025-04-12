@@ -12,7 +12,6 @@ export class LingomqWordsService extends LingoMqApiConfiguration {
   private pageSize: number = 20;
   constructor(private httpClient: HttpClient) {
     super();
-    this.apiPath = 'http://localhost:5001/api/';
   }
 
   public getWords(

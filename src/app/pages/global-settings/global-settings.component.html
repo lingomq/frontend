@@ -1,0 +1,29 @@
+<app-empty-header></app-empty-header>
+<div class="content">
+  <div class="content-title">
+    <h1>{{ "general.settings" | transloco }}</h1>
+    <p>{{ "general.global" | transloco }}</p>
+  </div>
+  <div class="content-global-settings-block">
+    <div class="content-global-settings-block__min">
+
+    </div>
+    <div class="content-global-settings-block__edit">
+      <div class="content-global-settings-block__edit__el">
+        <label for="select-theme">{{ "settings.select-theme" | transloco }}</label>
+        <select id="select-theme" name="select-theme" (change)="selectTheme($event)">
+          <option value="">
+            {{ "settings.default-theme" | transloco }}
+          </option>
+          <option value="light">
+            {{ "settings.theme-light" | transloco }}
+          </option>
+          <option value="dark">
+            {{ "settings.theme-dark" | transloco }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+<app-auth-footer></app-auth-footer>
