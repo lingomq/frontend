@@ -3,7 +3,8 @@
     "copyright-text": "Все права защищены",
     "update": "Обновить",
     "settings": "Настройки",
-    "global": "Глобальные"
+    "global": "Глобальные",
+    "select-default": "Выберите"
   },
   "settings": {
     "select-theme": "Тема приложения",

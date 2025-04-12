@@ -26,6 +26,9 @@
       <div class="content-library-filter-item">
         <label>{{ "lib.source" | transloco }}</label>
         <select (change)="useFilterEventHandler($event, 1)">
+          <option value="">
+            {{ "general.select-default" | transloco }}
+          </option>
           <option value="russian">
             {{ "lib-langs.russian" | transloco }}
           </option>
@@ -42,7 +45,11 @@
       </div>
       <div class="content-library-filter-item">
         <label>{{ "lib.search" | transloco }}</label>
-        <input type="text" placeholder="search" (keyup)="useFilterEventHandler($event, 2)"/>
+        <input
+          type="text"
+          placeholder="search"
+          (keyup)="useFilterEventHandler($event, 2)"
+        />
       </div>
     </div>
     <div class="content-library-filter-mobile">
@@ -70,6 +77,9 @@
         <div class="content-library-filter-item">
           <label>{{ "lib.source" | transloco }}</label>
           <select (change)="useFilterEventHandler($event, 1)">
+            <option value="all">
+              {{ "general.select-default" | transloco }}
+            </option>
             <option value="russian">
               {{ "lib-langs.russian" | transloco }}
             </option>
@@ -86,7 +96,11 @@
         </div>
         <div class="content-library-filter-item">
           <label>{{ "lib.search" | transloco }}</label>
-          <input type="text" placeholder="search" (keyup)="useFilterEventHandler($event, 2)"/>
+          <input
+            type="text"
+            placeholder="search"
+            (keyup)="useFilterEventHandler($event, 2)"
+          />
         </div>
       </div>
     </div>
