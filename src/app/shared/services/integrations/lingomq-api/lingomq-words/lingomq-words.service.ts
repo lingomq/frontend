@@ -4,6 +4,8 @@ import { LingoMqApiConfiguration } from '../lingomq-api-configuration';
 import { GetWordRequestModel } from './models/get-word-request-model';
 import { Observable } from 'rxjs';
 import { WordInfoDto } from './models/word-info-dto';
+import { GetUserWordRequest } from './models/get-user-word-request';
+import { UserWordDto } from './models/user-word-dto';
 
 @Injectable({
   providedIn: 'root',
@@ -33,6 +35,20 @@ export class LingomqWordsService extends LingoMqApiConfiguration {
     });
 
     return this.httpClient.get<WordInfoDto[]>(url, { headers });
+  }
+
+  public getUserWords(request: GetUserWordRequest): Observable<UserWordDto[]> {
+    var url =
+      this.apiPath +
+      `words/user/?language=${request.language}&code=${request.code}&subCode=${request.subCode}`;
+    url += `&take=${request.take}&skip=${request.skip}`;
+    url += `&thematics=${request.thematics}&searchedWord=${request.searchedWord}`
+
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
+    });
+
+    return this.httpClient.get<UserWordDto[]>(url, { headers });
   }
 
   public transformToAlphabeticArray(

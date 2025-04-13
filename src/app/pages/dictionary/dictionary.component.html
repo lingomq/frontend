@@ -5,10 +5,14 @@
     <p>{{ "dictionary.sub-title" | transloco }}</p>
   </div>
   <div class="content-dictionary-block">
-    <div class="content-dictionary-filter">
+    <form
+      class="content-dictionary-filter"
+      (change)="filterize()"
+      [formGroup]="filter"
+    >
       <div class="content-dictionary-filter-item">
         <label>{{ "lib.native" | transloco }}</label>
-        <select (change)="useFilterEventHandler($event, 0)">
+        <select formControlName="language">
           <option value="english">
             {{ "lib-langs.english" | transloco }}
           </option>
@@ -25,21 +29,24 @@
       </div>
       <div class="content-dictionary-filter-item">
         <label>{{ "lib.source" | transloco }}</label>
-        <select (change)="useFilterEventHandler($event, 1)">
-          <option value="">
-            {{ "general.select-default" | transloco }}
+        <select formControlName="category">
+          <option value="general">
+            {{ "library.general" | transloco }}
           </option>
-          <option value="russian">
-            {{ "lib-langs.russian" | transloco }}
+          <option value="food">
+            {{ "library.food" | transloco }}
           </option>
-          <option value="english">
-            {{ "lib-langs.english" | transloco }}
+          <option value="actions">
+            {{ "library.actions" | transloco }}
           </option>
-          <option value="german">
-            {{ "lib-langs.german" | transloco }}
+          <option value="family">
+            {{ "library.family" | transloco }}
           </option>
-          <option value="french">
-            {{ "lib-langs.french" | transloco }}
+          <option value="work">
+            {{ "library.work" | transloco }}
+          </option>
+          <option value="relax">
+            {{ "library.relax" | transloco }}
           </option>
         </select>
       </div>
@@ -48,18 +55,22 @@
         <input
           type="text"
           placeholder="search"
-          (keyup)="useFilterEventHandler($event, 2)"
+          formControlName="searchedWord"
         />
       </div>
-    </div>
-    <div class="content-dictionary-filter-mobile">
+    </form>
+    <form
+      [formGroup]="filter"
+      class="content-dictionary-filter-mobile"
+      (change)="filterize()"
+    >
       <lingomq-button (click)="showMobileFilter()">{{
         "lib.filter" | transloco
       }}</lingomq-button>
       <div class="content-dictionary-filter-mobile-item">
         <div class="content-dictionary-filter-item">
           <label>{{ "lib.native" | transloco }}</label>
-          <select (change)="useFilterEventHandler($event, 0)">
+          <select formControlName="language">
             <option value="english">
               {{ "lib-langs.english" | transloco }}
             </option>
@@ -76,21 +87,24 @@
         </div>
         <div class="content-dictionary-filter-item">
           <label>{{ "lib.source" | transloco }}</label>
-          <select (change)="useFilterEventHandler($event, 1)">
-            <option value="all">
-              {{ "general.select-default" | transloco }}
+          <select formControlName="category">
+            <option value="general">
+              {{ "library.general" | transloco }}
             </option>
-            <option value="russian">
-              {{ "lib-langs.russian" | transloco }}
+            <option value="food">
+              {{ "library.food" | transloco }}
             </option>
-            <option value="english">
-              {{ "lib-langs.english" | transloco }}
+            <option value="actions">
+              {{ "library.actions" | transloco }}
             </option>
-            <option value="german">
-              {{ "lib-langs.german" | transloco }}
+            <option value="family">
+              {{ "library.family" | transloco }}
             </option>
-            <option value="french">
-              {{ "lib-langs.french" | transloco }}
+            <option value="work">
+              {{ "library.work" | transloco }}
+            </option>
+            <option value="relax">
+              {{ "library.relax" | transloco }}
             </option>
           </select>
         </div>
@@ -99,11 +113,11 @@
           <input
             type="text"
             placeholder="search"
-            (keyup)="useFilterEventHandler($event, 2)"
+            formControlName="searchedWord"
           />
         </div>
       </div>
-    </div>
+    </form>
     <div class="content-dictionary-words-block">
       <div
         *ngFor="let wordInfo of wordInfos"
@@ -121,7 +135,6 @@
             <p>{{ word.word }}</p>
             <i>{{ word.transcription }}</i>
             <i>{{
-
               parseTranslationFromWordByLanguage(word, "russian")?.word
             }}</i>
           </div>
