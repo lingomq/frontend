@@ -6,23 +6,32 @@
       </div>
       {{ "auth-footer.practice" | transloco }}
     </div>
-    <div class="auth-footer-nav-button">
+    <div
+      class="auth-footer-nav-button"
+      onclick="window.location.href = '/dictionary';"
+    >
       <div class="auth-footer-nav-icon">
         <img src="../../../../assets/icons/dict.svg" alt="dict-svg" />
       </div>
       {{ "auth-footer.dict" | transloco }}
     </div>
-    <div class="auth-footer-nav-button" onclick="window.location.href = '/library';">
+    <div
+      class="auth-footer-nav-button"
+      onclick="window.location.href = '/library';"
+    >
       <div class="auth-footer-nav-icon">
         <img src="../../../../assets/icons/library.svg" alt="library-svg" />
       </div>
       {{ "auth-footer.library" | transloco }}
     </div>
-    <div class="auth-footer-nav-button" onclick="window.location.href = '/account';">
+    <div
+      class="auth-footer-nav-button"
+      onclick="window.location.href = '/account';"
+    >
       <div class="auth-footer-nav-profile-icon">
-        <img [src]="imageToShow" alt="profile-img"/>
+        <img [src]="imageToShow" alt="profile-img" />
       </div>
-      <p *ngIf="user$ | async as user">{{user.nickname}}</p>
+      <p *ngIf="user$ | async as user">{{ user.nickname }}</p>
     </div>
   </div>
 </div>

@@ -1,12 +1,12 @@
 <app-empty-header></app-empty-header>
 <div class="content">
   <div class="content-title">
-    <h1>{{ "library.title" | transloco }}</h1>
-    <p>{{ "library." + wordType | transloco }}</p>
+    <h1>{{ "dictionary.title" | transloco }}</h1>
+    <p>{{ "dictionary.sub-title" | transloco }}</p>
   </div>
-  <div class="content-library-block">
-    <div class="content-library-filter">
-      <div class="content-library-filter-item">
+  <div class="content-dictionary-block">
+    <div class="content-dictionary-filter">
+      <div class="content-dictionary-filter-item">
         <label>{{ "lib.native" | transloco }}</label>
         <select (change)="useFilterEventHandler($event, 0)">
           <option value="english">
@@ -23,7 +23,7 @@
           </option>
         </select>
       </div>
-      <div class="content-library-filter-item">
+      <div class="content-dictionary-filter-item">
         <label>{{ "lib.source" | transloco }}</label>
         <select (change)="useFilterEventHandler($event, 1)">
           <option value="">
@@ -43,7 +43,7 @@
           </option>
         </select>
       </div>
-      <div class="content-library-filter-item">
+      <div class="content-dictionary-filter-item">
         <label>{{ "lib.search" | transloco }}</label>
         <input
           type="text"
@@ -52,12 +52,12 @@
         />
       </div>
     </div>
-    <div class="content-library-filter-mobile">
+    <div class="content-dictionary-filter-mobile">
       <lingomq-button (click)="showMobileFilter()">{{
         "lib.filter" | transloco
       }}</lingomq-button>
-      <div class="content-library-filter-mobile-item">
-        <div class="content-library-filter-item">
+      <div class="content-dictionary-filter-mobile-item">
+        <div class="content-dictionary-filter-item">
           <label>{{ "lib.native" | transloco }}</label>
           <select (change)="useFilterEventHandler($event, 0)">
             <option value="english">
@@ -74,7 +74,7 @@
             </option>
           </select>
         </div>
-        <div class="content-library-filter-item">
+        <div class="content-dictionary-filter-item">
           <label>{{ "lib.source" | transloco }}</label>
           <select (change)="useFilterEventHandler($event, 1)">
             <option value="all">
@@ -94,7 +94,7 @@
             </option>
           </select>
         </div>
-        <div class="content-library-filter-item">
+        <div class="content-dictionary-filter-item">
           <label>{{ "lib.search" | transloco }}</label>
           <input
             type="text"
@@ -104,19 +104,19 @@
         </div>
       </div>
     </div>
-    <div class="content-library-words-block">
+    <div class="content-dictionary-words-block">
       <div
         *ngFor="let wordInfo of wordInfos"
-        class="content-library-words-alphabetic-component"
+        class="content-dictionary-words-alphabetic-component"
       >
-        <div class="content-library-words-alphabetic-component-header">
+        <div class="content-dictionary-words-alphabetic-component-header">
           <h1>{{ wordInfo.letter | uppercase }}</h1>
           <hr />
         </div>
-        <div class="content-library-words-alphabetic-component-block">
+        <div class="content-dictionary-words-alphabetic-component-block">
           <div
             *ngFor="let word of wordInfo.wordInfos"
-            class="content-library-word"
+            class="content-dictionary-word"
           >
             <p>{{ word.word }}</p>
             <i>{{ word.transcription }}</i>
@@ -128,12 +128,12 @@
         </div>
       </div>
     </div>
-    <div class="content-library-pagination-block">
-      <div class="content-library-pagination">
+    <div class="content-dictionary-pagination-block">
+      <div class="content-dictionary-pagination">
         <lingomq-button (click)="prev()"><</lingomq-button>
         <lingomq-button (click)="next()">></lingomq-button>
       </div>
     </div>
   </div>
 </div>
-<app-auth-footer></app-auth-footer>
+<app-auth-footer> </app-auth-footer>

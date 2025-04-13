@@ -1,11 +1,10 @@
-import { LanguageDto } from './../../shared/services/integrations/lingomq-api/lingomq-words/models/language-dto';
-import { WordInfoDto } from './../../shared/services/integrations/lingomq-api/lingomq-words/models/word-info-dto';
 import { Component, OnInit } from '@angular/core';
-import { TranslocoModule, TranslocoPipe } from '@jsverse/transloco';
-import { EmptyHeaderComponent } from '../../shared/components/empty-header/empty-header.component';
 import { AuthFooterComponent } from '../../shared/components/auth-footer/auth-footer.component';
-import { ActivatedRoute } from '@angular/router';
+import { EmptyHeaderComponent } from '../../shared/components/empty-header/empty-header.component';
+import { TranslocoModule, TranslocoPipe } from '@jsverse/transloco';
 import { LingomqButtonComponent } from '../../core/ui/lingomq-button/lingomq-button.component';
+import { WordInfoDto } from '../../shared/services/integrations/lingomq-api/lingomq-words/models/word-info-dto';
+import { ActivatedRoute } from '@angular/router';
 import {
   LibraryAlphabeticComponent,
   LingomqWordsService,
@@ -14,7 +13,7 @@ import { GetWordRequestModel } from '../../shared/services/integrations/lingomq-
 import { NgForOf, UpperCasePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-library',
+  selector: 'app-dictionary',
   imports: [
     TranslocoModule,
     EmptyHeaderComponent,
@@ -24,10 +23,10 @@ import { NgForOf, UpperCasePipe } from '@angular/common';
     UpperCasePipe,
   ],
   providers: [TranslocoPipe],
-  templateUrl: './library.component.html',
-  styleUrl: './library.component.scss',
+  templateUrl: './dictionary.component.html',
+  styleUrl: './dictionary.component.scss',
 })
-export class LibraryComponent implements OnInit {
+export class DictionaryComponent implements OnInit {
   wordType: string | null = 'any';
   pageSize: number = 20;
   take: number = this.pageSize;

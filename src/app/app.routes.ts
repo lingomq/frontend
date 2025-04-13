@@ -9,6 +9,7 @@ import { LibraryComponent } from './pages/library/library.component';
 import { AccountPersonalDataComponent } from './pages/account-personal-data/account-personal-data.component';
 import { AccountSecurityComponent } from './pages/account-security/account-security.component';
 import { GlobalSettingsComponent } from './pages/global-settings/global-settings.component';
+import { DictionaryComponent } from './pages/dictionary/dictionary.component';
 
 export const routes: Routes = [
   {
@@ -25,31 +26,35 @@ export const routes: Routes = [
   },
   {
     path: 'account',
-    component: AccountComponent
+    component: AccountComponent,
   },
   {
     path: 'account-personal-data',
-    component: AccountPersonalDataComponent
+    component: AccountPersonalDataComponent,
   },
   {
     path: 'account-security',
-    component: AccountSecurityComponent
+    component: AccountSecurityComponent,
   },
   {
     path: 'global-settings',
-    component: GlobalSettingsComponent
+    component: GlobalSettingsComponent,
+  },
+  {
+    path: 'dictionary',
+    component: DictionaryComponent,
   },
   {
     path: 'library',
-    component: LibraryMainComponent
+    component: LibraryMainComponent,
   },
   {
     path: 'lib',
-    component: LibraryComponent
+    component: LibraryComponent,
   },
   {
     path: 'lib/:wordtype',
-    component: LibraryComponent
+    component: LibraryComponent,
   },
   {
     path: 'not-found',

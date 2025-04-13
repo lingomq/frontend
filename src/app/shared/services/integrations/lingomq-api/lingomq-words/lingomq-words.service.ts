@@ -55,6 +55,13 @@ export class LingomqWordsService extends LingoMqApiConfiguration {
 
     return resultArray;
   }
+
+  public getTranslationFromWord(
+    word: WordInfoDto,
+    language: string
+  ): WordInfoDto | undefined {
+    return word.translations?.filter((x) => x.language.value == language)[0];
+  }
 }
 
 export interface LibraryAlphabeticComponent {
