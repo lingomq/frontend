@@ -1,3 +1,3 @@
 export class LingoMqApiConfiguration {
-  protected apiPath: string = 'http://127.0.0.1:5155/api/'
+  protected apiPath: string = 'http://192.168.0.110:5155/api/'
 }

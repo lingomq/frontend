@@ -1,0 +1,51 @@
+<app-auth-wrapper
+  title="{{ 'library.title' | transloco }}"
+  subTitle="{{ 'library.sub-title' | transloco }}"
+>
+  <div class="content-library-main-block" content-body>
+    <div class="content-library-main">
+      <div
+        class="content-library-main-category"
+        routerLink="/app/lib"
+        [queryParams]="{ wordtype: 'general' }"
+      >
+        <p>{{ "library.general" | transloco }}</p>
+      </div>
+      <div
+        class="content-library-main-category"
+        routerLink="/app/lib"
+        [queryParams]="{ wordtype: 'food' }"
+      >
+        <p>{{ "library.food" | transloco }}</p>
+      </div>
+      <div
+        class="content-library-main-category"
+        routerLink="/app/lib"
+        [queryParams]="{ wordtype: 'actions' }"
+      >
+        <p>{{ "library.actions" | transloco }}</p>
+      </div>
+      <div
+        class="content-library-main-category"
+        routerLink="/app/lib"
+        [queryParams]="{ wordtype: 'family' }"
+      >
+        <p>{{ "library.family" | transloco }}</p>
+      </div>
+      <div
+        class="content-library-main-category"
+        routerLink="/app/lib"
+        [queryParams]="{ wordtype: 'work' }"
+      >
+        <p>{{ "library.work" | transloco }}</p>
+      </div>
+      <div
+        class="content-library-main-category"
+        routerLink="/app/lib"
+        [queryParams]="{ wordtype: 'relax' }"
+      >
+        <p>{{ "library.relax" | transloco }}</p>
+      </div>
+    </div>
+  </div>
+</app-auth-wrapper>

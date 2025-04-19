@@ -1,0 +1,135 @@
+<app-auth-wrapper
+  title="{{ 'library.title' | transloco }}"
+  subTitle="{{ 'library.' + wordType | transloco }}"
+>
+  <div class="content-library-block" content-body>
+    <div class="content-library-filter">
+      <div class="content-library-filter-item">
+        <label>{{ "lib.native" | transloco }}</label>
+        <select (change)="useFilterEventHandler($event, 0)">
+          <option value="english">
+            {{ "lib-langs.english" | transloco }}
+          </option>
+          <option value="russian">
+            {{ "lib-langs.russian" | transloco }}
+          </option>
+          <option value="german">
+            {{ "lib-langs.german" | transloco }}
+          </option>
+          <option value="french">
+            {{ "lib-langs.french" | transloco }}
+          </option>
+        </select>
+      </div>
+      <div class="content-library-filter-item">
+        <label>{{ "lib.source" | transloco }}</label>
+        <select (change)="useFilterEventHandler($event, 1)">
+          <option value="">
+            {{ "general.select-default" | transloco }}
+          </option>
+          <option value="russian">
+            {{ "lib-langs.russian" | transloco }}
+          </option>
+          <option value="english">
+            {{ "lib-langs.english" | transloco }}
+          </option>
+          <option value="german">
+            {{ "lib-langs.german" | transloco }}
+          </option>
+          <option value="french">
+            {{ "lib-langs.french" | transloco }}
+          </option>
+        </select>
+      </div>
+      <div class="content-library-filter-item">
+        <label>{{ "lib.search" | transloco }}</label>
+        <input
+          type="text"
+          placeholder="search"
+          (keyup)="useFilterEventHandler($event, 2)"
+        />
+      </div>
+    </div>
+    <div class="content-library-filter-mobile">
+      <lingomq-button (click)="showMobileFilter()">{{
+        "lib.filter" | transloco
+      }}</lingomq-button>
+      <div class="content-library-filter-mobile-item">
+        <div class="content-library-filter-item">
+          <label>{{ "lib.native" | transloco }}</label>
+          <select (change)="useFilterEventHandler($event, 0)">
+            <option value="english">
+              {{ "lib-langs.english" | transloco }}
+            </option>
+            <option value="russian">
+              {{ "lib-langs.russian" | transloco }}
+            </option>
+            <option value="german">
+              {{ "lib-langs.german" | transloco }}
+            </option>
+            <option value="french">
+              {{ "lib-langs.french" | transloco }}
+            </option>
+          </select>
+        </div>
+        <div class="content-library-filter-item">
+          <label>{{ "lib.source" | transloco }}</label>
+          <select (change)="useFilterEventHandler($event, 1)">
+            <option value="all">
+              {{ "general.select-default" | transloco }}
+            </option>
+            <option value="russian">
+              {{ "lib-langs.russian" | transloco }}
+            </option>
+            <option value="english">
+              {{ "lib-langs.english" | transloco }}
+            </option>
+            <option value="german">
+              {{ "lib-langs.german" | transloco }}
+            </option>
+            <option value="french">
+              {{ "lib-langs.french" | transloco }}
+            </option>
+          </select>
+        </div>
+        <div class="content-library-filter-item">
+          <label>{{ "lib.search" | transloco }}</label>
+          <input
+            type="text"
+            placeholder="search"
+            (keyup)="useFilterEventHandler($event, 2)"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="content-library-words-block">
+      <div
+        *ngFor="let wordInfo of wordInfos"
+        class="content-library-words-alphabetic-component"
+      >
+        <div class="content-library-words-alphabetic-component-header">
+          <h1>{{ wordInfo.letter | uppercase }}</h1>
+          <hr />
+        </div>
+        <div class="content-library-words-alphabetic-component-block">
+          <div
+            *ngFor="let word of wordInfo.wordInfos"
+            class="content-library-word"
+          >
+            <p>{{ word.word }}</p>
+            <i>{{ word.transcription }}</i>
+            <i>{{
+              parseTranslationFromWordByLanguage(word, "russian")?.word
+            }}</i>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-library-pagination-block">
+      <div class="content-library-pagination">
+        <lingomq-button (click)="prev()"><</lingomq-button>
+        <lingomq-button (click)="next()">></lingomq-button>
+      </div>
+    </div>
+  </div>
+</app-auth-wrapper>

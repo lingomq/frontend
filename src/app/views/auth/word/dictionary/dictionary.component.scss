@@ -1,0 +1,137 @@
+@import "styles";
+
+.content-dictionary-block {
+  .content-dictionary-filter {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    .content-dictionary-filter-item {
+      display: flex;
+      flex-direction: column;
+      margin: 10px 0;
+      width: 200px;
+
+      label {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      input {
+        height: 40px;
+        background: var(--background-secondary);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 15px;
+        font-size: 20px;
+        font-family: var($mainFont);
+      }
+
+      select {
+        height: 60px;
+        background: var(--background-secondary);
+        padding: 0 20px;
+        border: none;
+        border-radius: 15px;
+        font-size: 20px;
+        font-family: var($mainFont);
+      }
+
+      @media screen and (max-width: 850px) {
+        display: none;
+      }
+    }
+  }
+
+  .content-dictionary-filter-mobile {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    .content-dictionary-filter-mobile-item {
+      margin-top: 25px;
+      display: none;
+      flex-direction: column;
+      gap: 30px;
+    }
+
+    .content-dictionary-filter-item {
+      display: flex;
+      flex-direction: column;
+      margin: 10px 0;
+      width: 200px;
+
+      label {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 20px;
+      }
+
+      input {
+        height: 40px;
+        background: var(--background-secondary);
+        padding: 10px 20px;
+        border: none;
+        border-radius: 15px;
+        font-size: 20px;
+        font-family: var($mainFont);
+      }
+
+      select {
+        height: 60px;
+        background: var(--background-secondary);
+        padding: 0 20px;
+        border: none;
+        border-radius: 15px;
+        font-size: 20px;
+        font-family: var($mainFont);
+      }
+    }
+    @media screen and (max-width: 850px) {
+      display: flex;
+    }
+
+    .active-flex {
+      display: flex;
+    }
+
+    .disable-flex {
+      display: none;
+    }
+  }
+}
+
+.content-dictionary-words-block {
+  height: 50vh;
+  overflow-x: auto;
+  .content-dictionary-words-alphabetic-component {
+    .content-dictionary-words-alphabetic-component-block {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      // justify-content: center;
+      gap: 50px;
+      .content-dictionary-word {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background: var(--background-secondary);
+        width: 320px;
+        border-radius: 15px;
+        padding: 15px 15px;
+        text-align: center;
+        p {
+          font-size: 28px;
+          font-weight: 600;
+          line-height: 15px;
+          margin: 10px 0;
+        }
+      }
+
+      @media screen and (max-width: 1000px) {
+        justify-content: center;
+      }
+    }
+  }
+}
