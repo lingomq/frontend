@@ -121,6 +121,9 @@
             <i>{{
               parseTranslationFromWordByLanguage(word, "russian")?.word
             }}</i>
+            <button data-id="{{ word.id }}" (click)="addUserWord($event)">
+              {{ "general.append" | transloco }}
+            </button>
           </div>
         </div>
       </div>

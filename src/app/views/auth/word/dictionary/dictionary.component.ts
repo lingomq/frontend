@@ -11,7 +11,7 @@ import {
 import { NgForOf, UpperCasePipe } from '@angular/common';
 import { FormBuilder, ReactiveFormsModule } from '@angular/forms';
 import { GetUserWordRequest } from '../../../../shared/services/integrations/lingomq-api/lingomq-words/models/get-user-word-request';
-import { AuthWrapperComponent } from "../../auth-wrapper/auth-wrapper.component";
+import { AuthWrapperComponent } from '../../auth-wrapper/auth-wrapper.component';
 
 @Component({
   selector: 'app-dictionary',
@@ -21,8 +21,8 @@ import { AuthWrapperComponent } from "../../auth-wrapper/auth-wrapper.component"
     NgForOf,
     ReactiveFormsModule,
     UpperCasePipe,
-    AuthWrapperComponent
-],
+    AuthWrapperComponent,
+  ],
   providers: [TranslocoPipe],
   templateUrl: './dictionary.component.html',
   styleUrl: './dictionary.component.scss',
@@ -109,5 +109,18 @@ export class DictionaryComponent implements OnInit {
     language: string
   ): WordInfoDto | undefined {
     return this.wordsService.getTranslationFromWord(word, language);
+  }
+
+  removeUserWord(event: any) {
+    this.wordInfos.forEach(
+      (x) =>
+        (x.wordInfos = x.wordInfos.filter((x) => {
+          return x.id != event.target.attributes.id.value;
+        }))
+    );
+
+    this.wordsService
+      .removeUserWord(event.target.attributes.id.value)
+      .subscribe((x) => alert('success'));
   }
 }

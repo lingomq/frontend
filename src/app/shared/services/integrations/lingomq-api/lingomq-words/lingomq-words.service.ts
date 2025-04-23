@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { WordInfoDto } from './models/word-info-dto';
 import { GetUserWordRequest } from './models/get-user-word-request';
 import { UserWordDto } from './models/user-word-dto';
+import { AddUserWordRequest } from './models/add-user-word-request';
 
 @Injectable({
   providedIn: 'root',
@@ -42,13 +43,34 @@ export class LingomqWordsService extends LingoMqApiConfiguration {
       this.apiPath +
       `words/user/?language=${request.language}&code=${request.code}&subCode=${request.subCode}`;
     url += `&take=${request.take}&skip=${request.skip}`;
-    url += `&thematics=${request.thematics}&searchedWord=${request.searchedWord}`
+    url += `&thematics=${request.thematics}&searchedWord=${request.searchedWord}`;
 
     const headers = new HttpHeaders({
       Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
     });
 
     return this.httpClient.get<UserWordDto[]>(url, { headers });
+  }
+
+  public addUserWord(wordId: string): Observable<object> {
+    const url = this.apiPath + 'words/user';
+    const request: AddUserWordRequest = { wordId: wordId };
+
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
+    });
+
+    return this.httpClient.post(url, request, { headers });
+  }
+
+  public removeUserWord(wordId: string): Observable<object> {
+    const url = this.apiPath + `words/user/${wordId}`;
+
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
+    });
+
+    return this.httpClient.delete(url, { headers });
   }
 
   public transformToAlphabeticArray(

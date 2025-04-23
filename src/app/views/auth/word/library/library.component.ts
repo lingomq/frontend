@@ -9,7 +9,7 @@ import {
 } from '../../../../shared/services/integrations/lingomq-api/lingomq-words/lingomq-words.service';
 import { GetWordRequestModel } from '../../../../shared/services/integrations/lingomq-api/lingomq-words/models/get-word-request-model';
 import { NgForOf, UpperCasePipe } from '@angular/common';
-import { AuthWrapperComponent } from "../../auth-wrapper/auth-wrapper.component";
+import { AuthWrapperComponent } from '../../auth-wrapper/auth-wrapper.component';
 
 @Component({
   selector: 'app-library',
@@ -18,8 +18,8 @@ import { AuthWrapperComponent } from "../../auth-wrapper/auth-wrapper.component"
     LingomqButtonComponent,
     NgForOf,
     UpperCasePipe,
-    AuthWrapperComponent
-],
+    AuthWrapperComponent,
+  ],
   providers: [TranslocoPipe],
   templateUrl: './library.component.html',
   styleUrl: './library.component.scss',
@@ -154,6 +154,12 @@ export class LibraryComponent implements OnInit {
     language: string
   ): WordInfoDto | undefined {
     return this.wordsService.getTranslationFromWord(word, language);
+  }
+
+  addUserWord(event: any) {
+    this.wordsService
+      .addUserWord(event.target.attributes.id.value)
+      .subscribe((x) => alert('success'));
   }
 }
 

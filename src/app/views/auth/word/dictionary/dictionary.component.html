@@ -135,6 +135,9 @@
             <i>{{
               parseTranslationFromWordByLanguage(word, "russian")?.word
             }}</i>
+            <button data-id="{{ word.id }}" (click)="removeUserWord($event)">
+              {{ "general.remove" | transloco }}
+            </button>
           </div>
         </div>
       </div>
