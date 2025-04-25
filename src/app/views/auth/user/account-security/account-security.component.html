@@ -1,0 +1,45 @@
+<app-auth-wrapper
+  title="{{ 'account.title' | transloco }}"
+  subTitle="{{ 'account.security-title' | transloco }}"
+>
+  <div class="content-account-security-block" content-body>
+    <div class="content-account-security-block__min">
+      <lingomq-button type="alternative">{{
+        "account-security.change-password" | transloco
+      }}</lingomq-button>
+    </div>
+    <div class="content-account-security-block__edit">
+      <div class="content-account-security-block__edit-form">
+        <form [formGroup]="passwordForm" (ngSubmit)="updatePassword()">
+          <label for="old-password">{{
+            "account-security.old-password-input" | transloco
+          }}</label>
+          <input
+            id="old-password"
+            rows="3"
+            type="password"
+            wrap="hard"
+            placeholder="Qwerty123"
+            formControlName="oldPassword"
+          />
+
+          <label for="new-password">{{
+            "account-security.new-password-input" | transloco
+          }}</label>
+          <input
+            id="new-password"
+            rows="3"
+            type="password"
+            wrap="hard"
+            placeholder="Qwerty123"
+            formControlName="newPassword"
+          />
+
+          <lingomq-button buttonType="submit">{{
+            "general.update" | transloco
+          }}</lingomq-button>
+        </form>
+      </div>
+    </div>
+  </div>
+</app-auth-wrapper>

@@ -4,6 +4,9 @@ import { LingoMqApiConfiguration } from '../lingomq-api-configuration';
 import { GetWordRequestModel } from './models/get-word-request-model';
 import { Observable } from 'rxjs';
 import { WordInfoDto } from './models/word-info-dto';
+import { GetUserWordRequest } from './models/get-user-word-request';
+import { UserWordDto } from './models/user-word-dto';
+import { AddUserWordRequest } from './models/add-user-word-request';
 
 @Injectable({
   providedIn: 'root',
@@ -35,6 +38,41 @@ export class LingomqWordsService extends LingoMqApiConfiguration {
     return this.httpClient.get<WordInfoDto[]>(url, { headers });
   }
 
+  public getUserWords(request: GetUserWordRequest): Observable<UserWordDto[]> {
+    var url =
+      this.apiPath +
+      `words/user/?language=${request.language}&code=${request.code}&subCode=${request.subCode}`;
+    url += `&take=${request.take}&skip=${request.skip}`;
+    url += `&thematics=${request.thematics}&searchedWord=${request.searchedWord}`;
+
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
+    });
+
+    return this.httpClient.get<UserWordDto[]>(url, { headers });
+  }
+
+  public addUserWord(wordId: string): Observable<object> {
+    const url = this.apiPath + 'words/user';
+    const request: AddUserWordRequest = { wordId: wordId };
+
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
+    });
+
+    return this.httpClient.post(url, request, { headers });
+  }
+
+  public removeUserWord(wordId: string): Observable<object> {
+    const url = this.apiPath + `words/user/${wordId}`;
+
+    const headers = new HttpHeaders({
+      Authorization: 'Bearer ' + localStorage.getItem('accessToken'),
+    });
+
+    return this.httpClient.delete(url, { headers });
+  }
+
   public transformToAlphabeticArray(
     dtos: WordInfoDto[]
   ): LibraryAlphabeticComponent[] {
@@ -54,6 +92,13 @@ export class LingomqWordsService extends LingoMqApiConfiguration {
     });
 
     return resultArray;
+  }
+
+  public getTranslationFromWord(
+    word: WordInfoDto,
+    language: string
+  ): WordInfoDto | undefined {
+    return word.translations?.filter((x) => x.language.value == language)[0];
   }
 }
 

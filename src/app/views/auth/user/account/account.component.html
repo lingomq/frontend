@@ -1,0 +1,44 @@
+<app-auth-wrapper title="{{ 'account.title' | transloco }}">
+  <div class="content-account-block" content-body>
+    <div class="content-account">
+      <div class="content-account-image">
+        <img [src]="imageToShow" alt="profile-img" />
+        <!-- <canvas class="content-account-image__img"></canvas> -->
+      </div>
+      <div class="content-account-desc">
+        <p *ngIf="user$ | async as user">{{ user.nickname }}</p>
+        <p>{{ userEmail }}</p>
+      </div>
+    </div>
+    <div class="content-account-cards">
+      <a class="content-account-cards-card" routerLink="account-personal-data">
+        <div class="content-account-cards-card-icon">
+          <img src="../../../assets/icons/docs.svg" alt="personal" />
+        </div>
+        <h4>{{ "account.personal-title" | transloco }}</h4>
+        <p>{{ "account.personal-desc" | transloco }}</p>
+      </a>
+      <div class="content-account-cards-card" routerLink="account-security">
+        <div class="content-account-cards-card-icon">
+          <img src="../../../assets/icons/lock.svg" alt="security" />
+        </div>
+        <h4>{{ "account.security-title" | transloco }}</h4>
+        <p>{{ "account.security-desc" | transloco }}</p>
+      </div>
+      <div class="content-account-cards-card" routerLink="global-settings">
+        <div class="content-account-cards-card-icon">
+          <img src="../../../assets/icons/settings.svg" alt="settings" />
+        </div>
+        <h4>{{ "account.settings-title" | transloco }}</h4>
+        <p>{{ "account.settings-desc" | transloco }}</p>
+      </div>
+      <div class="content-account-cards-card" (click)="logout()">
+        <div class="content-account-cards-card-icon">
+          <img src="../../../assets/icons/exit.svg" alt="leave" />
+        </div>
+        <h4>{{ "account.leave-title" | transloco }}</h4>
+        <p>{{ "account.leave-desc" | transloco }}</p>
+      </div>
+    </div>
+  </div>
+</app-auth-wrapper>

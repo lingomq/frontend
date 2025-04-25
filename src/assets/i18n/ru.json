@@ -4,7 +4,9 @@
     "update": "Обновить",
     "settings": "Настройки",
     "global": "Глобальные",
-    "select-default": "Выберите"
+    "select-default": "Выберите",
+    "append": "Добавить",
+    "remove": "Удалить"
   },
   "settings": {
     "select-theme": "Тема приложения",
@@ -111,5 +113,9 @@
     "english": "Английский",
     "german": "Немецкий",
     "french": "Французский"
+  },
+  "dictionary": {
+    "title": "Словарь",
+    "sub-title": "Ваши избранные слова"
   }
 }

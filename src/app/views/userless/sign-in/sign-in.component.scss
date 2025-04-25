@@ -1,0 +1,159 @@
+@import "styles";
+
+.content-body {
+  min-height: calc(100vh - 350px);
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: space-between;
+  align-items: center;
+
+  .content-description {
+    width: 45vh;
+    h1 {
+      font-size: 56px;
+      font-weight: 800;
+    }
+
+    p {
+      font-size: 26px;
+      font-weight: 600;
+    }
+
+    .content-description-services {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+    }
+    @media screen and (max-width: 1050px) {
+      display: none;
+    }
+  }
+
+  .content-sign-in-form {
+    width: 30vw;
+    form {
+      .content-sign-in-form-input {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0;
+
+        label {
+          font-size: 20px;
+          font-weight: 600;
+          margin-bottom: 20px;
+        }
+
+        input {
+          height: 40px;
+          background: var(--foreground-alternative);
+          padding: 10px 20px;
+          border: none;
+          border-radius: 55px;
+          font-size: 20px;
+          font-family: var($mainFont);
+        }
+      }
+      .content-sign-in-form-input-cleared {
+        margin: 10px 0;
+        label {
+          margin-left: 10px;
+          font-size: 20px;
+          font-weight: 600;
+          color: var(--foreground-alternative);
+        }
+
+        input {
+          background: var(--foreground-alternative);
+          padding: 10px 20px;
+          border: none;
+          border-radius: 55px;
+          font-size: 20px;
+          font-family: var($mainFont);
+        }
+      }
+    }
+
+    @media screen and (max-width: 1050px) {
+      display: none;
+    }
+  }
+
+  .content-sign-in-form-mobile {
+    display: none;
+
+    form {
+      .content-sign-in-form-input {
+        display: flex;
+        flex-direction: column;
+        margin: 10px 0;
+
+        label {
+          font-size: 20px;
+          font-weight: 600;
+          margin-bottom: 20px;
+        }
+
+        input {
+          height: 40px;
+          background: var(--foreground-alternative);
+          padding: 10px 20px;
+          border: none;
+          border-radius: 55px;
+          font-size: 20px;
+          font-family: var($mainFont);
+        }
+      }
+      .content-sign-in-form-input-cleared {
+        margin: 10px 0;
+        label {
+          margin-left: 10px;
+          font-size: 20px;
+          font-weight: 600;
+          color: var(--foreground-alternative);
+        }
+
+        input {
+          background: var(--foreground-alternative);
+          padding: 10px 20px;
+          border: none;
+          border-radius: 55px;
+          font-size: 20px;
+          font-family: var($mainFont);
+        }
+      }
+    }
+
+    .content-description-services {
+      display: flex;
+      flex-direction: row;
+      gap: 30px;
+    }
+
+    @media screen and (max-width: 1050px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+  }
+  @media screen and (max-width: 1050px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  @media screen and (max-width: 800px) {
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 0;
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+  @media screen and (max-width: 600px) {
+    margin-left: 25px;
+    margin-right: 25px;
+  }
+}

@@ -1,0 +1,98 @@
+<app-landing-wrapper>
+  <div class="content-body">
+    <div class="content-description">
+      <h1>{{ "sign-in.title" | transloco }}</h1>
+      <p>{{ "sign-in.services" | transloco }}</p>
+      <div class="content-description-services">
+        <div class="content-description-services-btn">
+          <img src="../../../assets/icons/google.svg" alt="google" />
+        </div>
+        <div class="content-description-services-btn">
+          <img src="../../../assets/icons/yandex.svg" alt="yandex" />
+        </div>
+        <div class="content-description-services-btn">
+          <img src="../../../assets/icons/vk.svg" alt="vk" />
+        </div>
+      </div>
+      <p>{{ "sign-in.sign-up-text" | transloco }}</p>
+      <lingomq-button onclick="window.location.href = '/sign-up';">{{
+        "sign-in.sign-up-btn" | transloco
+      }}</lingomq-button>
+    </div>
+    <div class="content-sign-in-form">
+      <form [formGroup]="signModel">
+        <div class="content-sign-in-form-input">
+          <label>Email</label>
+          <input
+            type="email"
+            required
+            placeholder="email"
+            formControlName="email"
+          />
+        </div>
+
+        <div class="content-sign-in-form-input">
+          <label>{{ "sign-in.password" | transloco }}</label>
+          <input type="password" required formControlName="password" />
+        </div>
+
+        <div class="content-sign-in-form-input-cleared">
+          <input type="checkbox" required id="remember-me" value="ree" />
+          <label id="remember-me">{{
+            "sign-in.remember-me" | transloco
+          }}</label>
+        </div>
+
+        <lingomq-button (click)="signIn()">{{
+          "sign-in.sign" | transloco
+        }}</lingomq-button>
+      </form>
+    </div>
+    <div class="content-sign-in-form-mobile">
+      <h1>{{ "sign-in.title" | transloco }}</h1>
+      <form [formGroup]="signModel">
+        <div class="content-sign-in-form-input">
+          <label>Email</label>
+          <input
+            type="email"
+            required
+            placeholder="email"
+            formControlName="email"
+          />
+        </div>
+
+        <div class="content-sign-in-form-input">
+          <label>{{ "sign-in.password" | transloco }}</label>
+          <input type="password" required formControlName="password" />
+        </div>
+
+        <div class="content-sign-in-form-input-cleared">
+          <input type="checkbox" required id="remember-me" value="ree" />
+          <label id="remember-me">{{
+            "sign-in.remember-me" | transloco
+          }}</label>
+        </div>
+
+        <lingomq-button (click)="signIn()">{{
+          "sign-in.sign" | transloco
+        }}</lingomq-button>
+      </form>
+      <p>{{ "sign-in.services" | transloco }}</p>
+      <div class="content-description-services">
+        <div class="content-description-services-btn">
+          <img src="../../../assets/icons/google.svg" alt="google" />
+        </div>
+        <div class="content-description-services-btn">
+          <img src="../../../assets/icons/yandex.svg" alt="yandex" />
+        </div>
+        <div class="content-description-services-btn">
+          <img src="../../../assets/icons/vk.svg" alt="vk" />
+        </div>
+      </div>
+      <p>{{ "sign-in.sign-up-text" | transloco }}</p>
+      <lingomq-button onclick="window.location.href = '/sign-up';">{{
+        "sign-in.sign-up-btn" | transloco
+      }}</lingomq-button>
+    </div>
+  </div>
+</app-landing-wrapper>
